@@ -7,7 +7,7 @@ router.get('/', async function(req, res){
     try {
         const allStores = await db.Store.find({});
         const context = {stores: allStores}
-        res.render("index", context);
+        res.render("Store/index", context);
     } catch (err) {
         console.log(err);
         res.send({message: "Internal Server Error"});
