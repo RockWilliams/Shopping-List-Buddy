@@ -12,8 +12,21 @@ router.get('/', async function(req, res){
         console.log(err);
         res.send({message: "Internal Server Error"});
     }
+});
 
-    
+router.get("/new", function(req,res){
+    res.render("Store/new");
+});
+
+router.post("/", function(req,res){
+    db.Store.create(req.body, function(err, createdStore){
+        if(err){
+            console.log(err);
+            res.send({message: "Internal Server Error"});
+        } else {
+            res.redirect("/");
+        }
+    });
 });
 
 module.exports = router;
