@@ -29,4 +29,16 @@ router.post("/", function(req,res){
     });
 });
 
+router.get("/:id", async function(request,res){
+    try {
+        const foundStore = await db.Store.findById(request.params.id);
+        //const foundList = await db.Store.findById({});
+        const context = {stores: foundStore};
+        res.render("Store/show", context);
+    } catch (err) {
+        console.log(err);
+        res.send({message: "Internal Server Error"});
+    }
+});
+
 module.exports = router;
