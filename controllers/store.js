@@ -93,6 +93,20 @@ router.delete("/:id", async function(req,res){
     }
 });
 
+router.get('/:id/new-list', async function(req, res){
+   try{
+    const foundStore = await db.findById(req.params.id);
+    const context = {stores: foundStore};
+    res.render('List/new');
+   } catch(err) {
+    if(err){
+        console.log(err);
+        res.send({Message: 'Internal Server Error'});
+    }
+   }
+});
+
+
 
 // router.get("/:id", async function(request,res){
 //     try {
