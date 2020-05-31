@@ -7,8 +7,21 @@
 </head>
 <body>
     <h1><%= stores.name %> </h1>
-    Type of store: <%= stores.type %>
-    Cost: <%= stores.expensive %> 
+    <h3>Store data:</h3>
+    <p>Type of store: <%= stores.type %> </p>
+    <p>Cost: <%= stores.expensive %> </p>
+    <br>
+    <section>
+        <a href="/store/<%= stores._id %>/edit">(edit store)</a>
+    </section>
+    <br>
+    <section>
+        <form action="/store/<%= stores._id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete store">
+        </form>
+    </section>
+    <br>
+    <br>
     <p>
         <a href="">Create New Shopping List</a>
     </p>
@@ -16,6 +29,9 @@
         <h3>Your shopping lists for <%= stores.name %> </h3>
         
     </p>
+
+    
+
     <p>
         <a href="/product/new">Create New Items</a>
     </p>
