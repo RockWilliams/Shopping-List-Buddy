@@ -22,6 +22,7 @@ router.post('/', function(req,res){
         if (err){
             console.log(err);
         } else {
+            console.log(createdProduct);
             db.Store.findById(createdProduct.store, function(err, foundStore){
                 if (err){
                     console.log(err);
@@ -29,6 +30,7 @@ router.post('/', function(req,res){
                     foundStore.products.push(createdProduct);
                     foundStore.save();
                     res.redirect("/product");
+                    console.log(foundStore);
                 }
             })
         }
