@@ -143,8 +143,16 @@ router.post("/:id", function(req,res){
 });
 
 router.get("/:id/:listId", function(req,res){
-    console.log();
-    //res.render("List/show", context)
+    db.List.findById(req.params.listId).populate("products").exec(function(err, foundList){
+        if(err){
+            console.log(err);
+            res.send({message: "Internal Server Error"});
+        } else { 
+            const context = {lists: foundList};
+            res.render("List/show", context);
+        }
+    });
+    
 });
 
 // router.get("/:id", async function(request,res){

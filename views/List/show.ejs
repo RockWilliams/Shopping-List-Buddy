@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>List Show Page</title>
 </head>
 <body>
+    <h1><%= lists.name %> </h1>
     
+    <% lists.products.forEach(product => { %>
+        <p>
+            <%= product.name %> 
+        </p>
+    <% }); %>
 </body>
 </html>
