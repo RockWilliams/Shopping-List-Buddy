@@ -13,7 +13,7 @@
     <input type="text" name="category" placeholder="category">
     <select name="store">
             <% store.forEach(store => { %>
-                <option value="store._id"><%= store.name %></option>
+                <option value="<%= store._id %>"><%= store.name %></option>
            <% }) %> 
     </select>
     <input type="submit" value="Add Product">

@@ -20,6 +20,13 @@
         <a href="/product/new">Create New Items</a>
     </p>
     <p>
+        <ul>
+            <% stores.products.forEach(product => { %>
+                <li><%= product.name %></li>
+           <% }) %>
+        </ul>
+    </p>
+    <p>
         <a href="/product">Products from <%= stores.name %> </a>
     </p>
     <br>

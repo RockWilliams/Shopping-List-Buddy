@@ -29,16 +29,36 @@ router.post("/", function(req,res){
     });
 });
 
-router.get("/:id", async function(request,res){
-    try {
-        const foundStore = await db.Store.findById(request.params.id);
+router.get("/:id", function(request,res){
+    db.Store.findById(request.params.id).populate('products').exec(function(err, foundStore){
+        if(err){
+            console.log(err);
+            res.send({message: "Internal Server Error"});
+        } else{
+            console.log(foundStore);
+            const context = {stores: foundStore};
+            res.render("Store/show", context);
+         
+        }
+    });
         //const foundList = await db.Store.findById({});
-        const context = {stores: foundStore};
-        res.render("Store/show", context);
-    } catch (err) {
-        console.log(err);
-        res.send({message: "Internal Server Error"});
+ 
+       
     }
-});
+);
+
+
+
+// router.get("/:id", async function(request,res){
+//     try {
+//         const foundStore = await db.Store.findById(request.params.id);
+//         //const foundList = await db.Store.findById({});
+//         const context = {stores: foundStore};
+//         res.render("Store/show", context);
+//     } catch (err) {
+//         console.log(err);
+//         res.send({message: "Internal Server Error"});
+//     }
+// });
 
 module.exports = router;
