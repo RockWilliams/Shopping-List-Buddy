@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const controllers = require('./controllers');
 const bodyParser = require('body-parser');
+const methodOverride = require("method-override");
 
 
 const PORT = 4000;
@@ -14,6 +15,7 @@ app.get('/', function(req, res){
 });
 
 app.use(bodyParser.urlencoded({extended:false}));
+app.use(methodOverride("_method"));
 
 app.use('/store', controllers.store);
 app.use('/product', controllers.product);

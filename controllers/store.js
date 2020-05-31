@@ -38,15 +38,46 @@ router.get("/:id", function(request,res){
             console.log(foundStore);
             const context = {stores: foundStore};
             res.render("Store/show", context);
-         
+        
         }
     });
         //const foundList = await db.Store.findById({});
- 
-       
     }
 );
 
+router.get("/:id/edit", async function(req,res){
+    try {
+        const foundStore = await db.Store.findById(req.params.id);
+        const context = {stores: foundStore};
+        res.render("Store/edit", context);
+    } catch (err) {
+        console.log(err);
+        res.send({message: "Internal Server Error"});
+    }
+    
+});
+
+router.put("/:id", function(req,res){
+
+    db.Store.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, updatedStore){
+        if(err) {
+            console.log(err);
+            res.send({message: "Internal Server Error"});
+        } else {
+            const context = {stores: updatedStore};
+            res.redirect(`/store/${updatedStore._id}`)
+        }
+    });
+
+    /* try {
+        const updatedStore = await db.Store.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        const context = {stores: updatedStore};
+        res.redirect(`/store/${updatedStore._id}`)
+    } catch (err) {
+        console.log(err);
+        res.send({message: "Internal Server Error"});
+    } */
+});
 
 
 // router.get("/:id", async function(request,res){
