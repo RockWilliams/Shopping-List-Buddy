@@ -7,11 +7,17 @@
 </head>
 <body>
     <h1>Add a new product</h1>
-    <form action="/product" method="post">
+    <form action="/product" method="POST">
     <input type="text" name="name" placeholder="Item Name">
     <input type="text" name="price" placeholder="Price">
     <input type="text" name="category" placeholder="category">
-    <input type="submit" value="Add Store">
+    <select name="store">
+            <% store.forEach(store => { %>
+                <option value="store._id"><%= store.name %></option>
+           <% }) %> 
+    </select>
+    <input type="submit" value="Add Product">
     </form>
+    
 </body>
 </html>
