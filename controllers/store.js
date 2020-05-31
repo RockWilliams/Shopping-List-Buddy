@@ -30,7 +30,7 @@ router.post("/", function(req,res){
 });
 
 router.get("/:id", function(request,res){
-    db.Store.findById(request.params.id).populate('products').exec(function(err, foundStore){
+    db.Store.findById(request.params.id).populate('lists products').exec(function(err, foundStore){
         if(err){
             console.log(err);
             res.send({message: "Internal Server Error"});
@@ -134,7 +134,7 @@ router.post("/:id", function(req,res){
                     foundStore.lists.push(createdList);
                     foundStore.save();
                     console.log(createdList);
-                    res.redirect(`/store/${foundStore._id}/new-list`);
+                    res.redirect(`/store/${foundStore._id}`);
                 }
             });
             
@@ -142,6 +142,10 @@ router.post("/:id", function(req,res){
     });
 });
 
+router.get("/:id/:listId", function(req,res){
+    console.log();
+    //res.render("List/show", context)
+});
 
 // router.get("/:id", async function(request,res){
 //     try {

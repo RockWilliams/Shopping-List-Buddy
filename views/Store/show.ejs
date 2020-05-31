@@ -29,6 +29,15 @@
         <h3>Your shopping lists for <%= stores.name %> </h3>
         
     </p>
+    
+    <% stores.lists.forEach(list => { %>
+        <p>
+            <a href="/store/<%= stores._id %>/<%= list._id %>">
+                <%= list.name %> 
+            </a>
+        </p>
+    <% }) %>
+    
 
     
 
