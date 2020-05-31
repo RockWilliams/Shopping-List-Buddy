@@ -16,6 +16,7 @@ app.get('/', function(req, res){
 app.use(bodyParser.urlencoded({extended:false}));
 
 app.use('/store', controllers.store);
+app.use('/product', controllers.product);
 
 
 app.listen(PORT, function(){
