@@ -7,22 +7,16 @@
 </head>
 <body>
     <h1>New Shopping List for <%= stores.name %> </h1>
-    <form action="/store/<%= stores._id %>" method="post">
+    <form action="/store/<%= stores._id %>" method="POST">
         <input type="text" name="name" placeholder="name">
         <p>
-            <select name="store">
-                <% stores.forEach(store => { %>
-                    <option value="<%= store._id %>"><%= store.name %> </option>
-                <% }) %>
-            </select>
-        </p>
-        <p>
-            <select name="products">
+            <select name="products" multiple>
                 <% stores.products.forEach(product => { %>
-                    <option value="<%= product._id %>"><%= product.name %> </option>
+                    <option value="<%= product._id %>"> <%= product.name %> </option>
                 <% }) %>
             </select>
         </p>
+        <input type="submit" value="Add to List!">
     </form>
 </body>
 </html>

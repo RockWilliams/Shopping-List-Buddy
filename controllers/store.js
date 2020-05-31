@@ -30,7 +30,7 @@ router.post("/", function(req,res){
 });
 
 router.get("/:id", function(request,res){
-    db.Store.findById(request.params.id).populate('products').exec(function(err, foundStore){
+    db.Store.findById(request.params.id).populate('lists products').exec(function(err, foundStore){
         if(err){
             console.log(err);
             res.send({message: "Internal Server Error"});
@@ -94,19 +94,66 @@ router.delete("/:id", async function(req,res){
 });
 
 router.get('/:id/new-list', async function(req, res){
-   try{
-    const foundStore = await db.findById(req.params.id);
+    db.Store.findById(req.params.id).populate("products").exec(function(err, foundStore){
+        if(err){
+            console.log(err);
+            res.send({message: "Internal Server Error"});
+        } else{
+            console.log(foundStore);
+            const context = {stores: foundStore};
+            res.render("List/new", context)
+        }
+    });
+
+
+   /* try{
+    const foundStore = await (await db.Store.findById(req.params.id)).populate("products");
+    console.log(foundStore);
     const context = {stores: foundStore};
-    res.render('List/new');
+    console.log(context);
+    res.render('List/new', context);
    } catch(err) {
     if(err){
         console.log(err);
         res.send({Message: 'Internal Server Error'});
     }
-   }
+   } */
 });
 
+router.post("/:id", function(req,res){
+    db.List.create(req.body, function(err, createdList){
+        if(err){
+            console.log(err);
+            res.send({message: "Internal Server Error"});
+        } else {
+            db.Store.findById(req.params.id, function(err, foundStore){
+                if(err){
+                    console.log(err);
+                    res.send({message: "Internal Server Error"});
+                } else {
+                    foundStore.lists.push(createdList);
+                    foundStore.save();
+                    console.log(createdList);
+                    res.redirect(`/store/${foundStore._id}`);
+                }
+            });
+            
+        }
+    });
+});
 
+router.get("/:id/:listId", function(req,res){
+    db.List.findById(req.params.listId).populate("products").exec(function(err, foundList){
+        if(err){
+            console.log(err);
+            res.send({message: "Internal Server Error"});
+        } else { 
+            const context = {lists: foundList};
+            res.render("List/show", context);
+        }
+    });
+    
+});
 
 // router.get("/:id", async function(request,res){
 //     try {

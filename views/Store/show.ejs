@@ -23,12 +23,21 @@
     <br>
     <br>
     <p>
-        <a href="">Create New Shopping List</a>
+        <a href="/store/<%= stores._id %>/new-list">Create New Shopping List</a>
     </p>
     <p>
         <h3>Your shopping lists for <%= stores.name %> </h3>
         
     </p>
+    
+    <% stores.lists.forEach(list => { %>
+        <p>
+            <a href="/store/<%= stores._id %>/<%= list._id %>">
+                <%= list.name %> 
+            </a>
+        </p>
+    <% }) %>
+    
 
     
 
