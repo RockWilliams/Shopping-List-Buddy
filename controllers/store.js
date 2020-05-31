@@ -120,6 +120,27 @@ router.get('/:id/new-list', async function(req, res){
    } */
 });
 
+router.post("/:id", function(req,res){
+    db.List.create(req.body, function(err, createdList){
+        if(err){
+            console.log(err);
+            res.send({message: "Internal Server Error"});
+        } else {
+            db.Store.findById(req.params.id, function(err, foundStore){
+                if(err){
+                    console.log(err);
+                    res.send({message: "Internal Server Error"});
+                } else {
+                    foundStore.lists.push(createdList);
+                    foundStore.save();
+                    console.log(createdList);
+                    res.redirect(`/store/${foundStore._id}/new-list`);
+                }
+            });
+            
+        }
+    });
+});
 
 
 // router.get("/:id", async function(request,res){
