@@ -94,16 +94,30 @@ router.delete("/:id", async function(req,res){
 });
 
 router.get('/:id/new-list', async function(req, res){
-   try{
-    const foundStore = await db.findById(req.params.id);
+    db.Store.findById(req.params.id).populate("products").exec(function(err, foundStore){
+        if(err){
+            console.log(err);
+            res.send({message: "Internal Server Error"});
+        } else{
+            console.log(foundStore);
+            const context = {stores: foundStore};
+            res.render("List/new", context)
+        }
+    });
+
+
+   /* try{
+    const foundStore = await (await db.Store.findById(req.params.id)).populate("products");
+    console.log(foundStore);
     const context = {stores: foundStore};
-    res.render('List/new');
+    console.log(context);
+    res.render('List/new', context);
    } catch(err) {
     if(err){
         console.log(err);
         res.send({Message: 'Internal Server Error'});
     }
-   }
+   } */
 });
 
 
