@@ -79,6 +79,20 @@ router.put("/:id", function(req,res){
     } */
 });
 
+router.delete("/:id", async function(req,res){
+    try {
+        const deletedStore = await db.Store.findByIdAndDelete(req.params.id);
+        // const deletedStore = await db.Store.findById(req.params.id); // to test if products are removed
+        const deletedProducts = await db.Product.remove({
+            store: deletedStore._id,
+        });
+        res.redirect("/store");
+    } catch (err) {
+        console.log(err);
+        res.send({message: "Internal Server Error"});
+    }
+});
+
 
 // router.get("/:id", async function(request,res){
 //     try {
