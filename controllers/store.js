@@ -114,7 +114,7 @@ router.delete("/:id", async function(req,res){
 });
 
 router.get('/:id/new-list', async function(req, res){
-    db.User.stores.findById(req.params.id).populate("lists products").exec(function(err, foundStore){
+    db.Store.findById(req.params.id).populate("lists products").exec(function(err, foundStore){
         if(err){
             console.log(err);
             res.send({message: "Internal Server Error"});
