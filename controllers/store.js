@@ -3,15 +3,27 @@ const router = express.Router();
 
 const db = require('../models');
 
-router.get('/', async function(req, res){
-    try {
-        const allStores = await db.Store.find({});
-        const context = {stores: allStores}
-        res.render("Store/index", context);
-    } catch (err) {
-        console.log(err);
-        res.send({message: "Internal Server Error"});
-    }
+// router.get('/', async function(req, res){
+//     try {
+//         const allStores = await db.Store.find({});
+//         const context = {stores: allStores}
+//         res.render("Store/index", context);
+//     } catch (err) {
+//         console.log(err);
+//         res.send({message: "Internal Server Error"});
+//     }
+// });
+
+router.get('/', function(req, res){
+    db.User.findById(req.session.currentUser.id).populate('stores').exec(function(err, foundUser){
+        if (err) {
+            console.log(err);
+        } else {
+            const context = {user: foundUser};
+            res.render("Store/index", context);
+            console.log(context);
+        }
+    })
 });
 
 router.get("/new", function(req,res){
@@ -24,7 +36,15 @@ router.post("/", function(req,res){
             console.log(err);
             res.send({message: "Internal Server Error"});
         } else {
-            res.redirect("/store");
+            db.User.findById(req.session.currentUser.id, function(err, foundUser){
+                if (err){
+                    console.log(err);
+                } else{
+                    foundUser.stores.push(createdStore);
+                    foundUser.save();
+                    res.redirect("/store");
+                }
+            })
         }
     });
 });
@@ -94,7 +114,7 @@ router.delete("/:id", async function(req,res){
 });
 
 router.get('/:id/new-list', async function(req, res){
-    db.Store.findById(req.params.id).populate("lists products").exec(function(err, foundStore){
+    db.User.stores.findById(req.params.id).populate("lists products").exec(function(err, foundStore){
         if(err){
             console.log(err);
             res.send({message: "Internal Server Error"});
