@@ -12,7 +12,7 @@
         <input type="text" name="price" placeholder="Price">
         <input type="text" name="category" placeholder="category">
         <select name="store">
-                <% store.forEach(store => { %>
+                <% user.stores.forEach(store => { %>
                     <option value="<%= store._id %>"><%= store.name %></option>
             <% }) %> 
         </select>

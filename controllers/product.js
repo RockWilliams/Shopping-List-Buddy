@@ -8,14 +8,14 @@ router.get('/', function(req,res){
 })
 
 router.get("/new", function(req, res){
-    db.Store.find({}, function(err, foundStore){
+    db.User.findById(req.session.currentUser.id).populate('stores').exec(function(err, foundUser){
         if(err){
             console.log(err);
         } else{
-            const context = {store: foundStore}
+            const context = {user: foundUser}
             res.render('Product/new', context);
         }
-    });
+    }); 
 });
 router.post('/', function(req,res){
     db.Product.create(req.body, function(err, createdProduct){
