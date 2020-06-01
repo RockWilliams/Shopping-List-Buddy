@@ -38,7 +38,7 @@ router.post('/login', async function(req, res){
         }
         const match = await bcrypt.compare(req.body.password, foundUser.password);
         if(!match){
-            return res.send({message: "Password or Email incorrect"})
+            return res.send({message: "Password or Email incorrect"});
         }
         req.session.currentUser = {
             id: foundUser._id,
@@ -49,6 +49,11 @@ router.post('/login', async function(req, res){
         console.log(err);
         res.send({message: "Internal Server Error", error: err });
     }
+});
+
+router.delete('/logout', async function(req, res){
+    await req.session.destroy();
+    res.redirect('/');
 });
 
 module.exports = router;
