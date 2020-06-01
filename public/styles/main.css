@@ -5,15 +5,18 @@
 }
 
 body {
-    
     display: flex;
-    
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: #823038;
 }
 
 div {
-    background-color: aqua;
-    text-align: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
+    position: absolute;
+    background-color: #DEBA6F;
+    border-radius: 20px;
+    padding: 20px;
 }
