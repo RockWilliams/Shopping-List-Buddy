@@ -18,16 +18,37 @@ router.post('/register', async function(req, res){
         const hash = await bcrypt.hash(req.body.password, salt);
         req.body.password = hash;
         const newUser = await db.User.create(req.body);
-        console.log(newUser);
         res.redirect('/login');
     } catch (err) {
         res.send({message: 'Internal Server Error', error: err});
       }
     });   
 
-module.exports = router;
+
 
 router.get('/login', function(req, res){
     res.render('User/login')
 });
 
+router.post('/login', async function(req, res){
+    try {
+        const foundUser = await db.User.findOne({email: req.body.email});
+        if(!foundUser){
+            return res.send({message: "Password or Email incorrect"});
+        }
+        const match = await bcrypt.compare(req.body.password, foundUser.password);
+        if(!match){
+            return res.send({message: "Password or Email incorrect"})
+        }
+        req.session.currentUser = {
+            id: foundUser._id,
+            username: foundUser.username
+        };
+        res.redirect('/');
+    } catch (err) {
+        console.log(err);
+        res.send({message: "Internal Server Error", error: err });
+    }
+});
+
+module.exports = router;
