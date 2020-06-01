@@ -11,6 +11,7 @@ const authRequired = require("./middleware/authRequired");
 const PORT = 4000;
 
 
+
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res){
@@ -19,7 +20,7 @@ app.get('/', function(req, res){
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(methodOverride("_method"));
-
+app.use(express.static(__dirname + "/public"));
 app.use(
     session({
         store: new MongoStore ({
