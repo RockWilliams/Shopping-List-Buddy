@@ -143,12 +143,13 @@ router.post("/:id", function(req,res){
 });
 
 router.get("/:id/:listId", function(req,res){
-    db.List.findById(req.params.listId).populate("products").exec(function(err, foundList){
+    db.List.findById(req.params.listId).populate("products store").exec(function(err, foundList){
         if(err){
             console.log(err);
             res.send({message: "Internal Server Error"});
-        } else { 
-            const context = {lists: foundList};
+        } else {
+            const storeId = req.params.id;
+            const context = {lists: foundList, store: storeId};
             res.render("List/show", context);
         }
     });
