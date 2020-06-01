@@ -29,7 +29,7 @@ router.post('/', function(req,res){
                 } else {
                     foundStore.products.push(createdProduct);
                     foundStore.save();
-                    res.redirect("/product");
+                    res.redirect(`/store/${foundStore._id}`);
                     console.log(foundStore);
                 }
             })
