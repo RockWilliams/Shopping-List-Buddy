@@ -10,8 +10,8 @@
     <div>
         <h1><%= stores.name %> </h1>
         <h3>Store data:</h3>
-        <p>Type of store: <%= stores.type %> </p>
-        <p>Cost: <%= stores.expensive %> </p>
+        <p class="storeData">Type of store: <%= stores.type %> </p>
+        <p class="storeData">Cost: <%= stores.expensive %> </p>
         <br>
         <section>
             <a href="/store/<%= stores._id %>/edit">(edit store)</a>
@@ -26,8 +26,8 @@
         <br>
         
         
-        <h3>Your shopping lists for <%= stores.name %> <a class="new-list-link" href="/store/<%= stores._id %>/new-list">Create New Shopping List</a></h3>
-            
+        <h3>Your shopping lists for <%= stores.name %></h3>
+        <a class="new-list-link" href="/store/<%= stores._id %>/new-list">Create New Shopping List</a>
         
         
         <% stores.lists.forEach(list => { %>
@@ -43,7 +43,8 @@
         
 
         
-        <h3><%= stores.name %> Products <a class="new-item-link" href="/product/new">Create New Items</a></h3>
+        <h3><%= stores.name %> Products </h3>
+        <a class="new-item-link" href="/product/new">Create New Items</a>
         
         <p>
             <ul>
