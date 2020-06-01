@@ -7,3 +7,7 @@
 body {
     background-color: aqua;
 }
+
+#list{
+    height: 100px;
+}
