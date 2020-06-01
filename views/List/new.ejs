@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css" type="text/css">
     <title>New Shopping List</title>
 </head>
 <body>
-    <h1>New Shopping List for <%= stores.name %> </h1>
-    <form action="/store/<%= stores._id %>" method="POST">
-        <input type="text" name="name" placeholder="name">
-        <p>
-            <select name="products" multiple>
-                <% stores.products.forEach(product => { %>
-                    <option value="<%= product._id %>"> <%= product.name %> </option>
-                <% }) %>
-            </select>
-        </p>
-        <input type="submit" value="Add to List!">
-    </form>
+    <div>
+        <h1>New Shopping List for <%= stores.name %> </h1>
+        <form action="/store/<%= stores._id %>" method="POST">
+            <input type="text" name="name" placeholder="name">
+            <p>
+                <select name="products" multiple>
+                    <% stores.products.forEach(product => { %>
+                        <option value="<%= product._id %>"> <%= product.name %> </option>
+                    <% }) %>
+                </select>
+            </p>
+            <input type="submit" value="Add to List!">
+        </form>
+    </div>
 </body>
 </html>
