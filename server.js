@@ -17,8 +17,10 @@ app.get('/', function(req, res){
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(methodOverride("_method"));
 
+app.use('/', controllers.auth);
 app.use('/store', controllers.store);
 app.use('/product', controllers.product);
+
 
 
 app.listen(PORT, function(){
