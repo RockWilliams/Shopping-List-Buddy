@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css" type="text/css">
     <title>Edit store</title>
 </head>
 <body>
-    <h1>Edit a Store</h1>
-    <form action="/store/<%= stores._id %>?_method=PUT" method="POST">
-        <input type="text" name="name" value="<%= stores.name %>">
-        <input type="text" name="type" value="<%= stores.type %>">
-        <input type="text" name="expensive" value="<%= stores.expensive %>">
-        <input type="submit" value="Update Store">
-    </form>
+    <div>
+        <h1>Edit a Store</h1>
+        <form action="/store/<%= stores._id %>?_method=PUT" method="POST">
+            <input type="text" name="name" value="<%= stores.name %>">
+            <input type="text" name="type" value="<%= stores.type %>">
+            <input type="text" name="expensive" value="<%= stores.expensive %>">
+            <input type="submit" value="Update Store">
+        </form>
+    </div>
 </body>
 </html>

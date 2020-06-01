@@ -3,56 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css" type="text/css">
     <title>Document</title>
 </head>
 <body>
-    <h1><%= stores.name %> </h1>
-    <h3>Store data:</h3>
-    <p>Type of store: <%= stores.type %> </p>
-    <p>Cost: <%= stores.expensive %> </p>
-    <br>
-    <section>
-        <a href="/store/<%= stores._id %>/edit">(edit store)</a>
-    </section>
-    <br>
-    <section>
-        <form action="/store/<%= stores._id %>?_method=DELETE" method="POST">
-            <input type="submit" value="Delete store">
-        </form>
-    </section>
-    <br>
-    <br>
-    
-    
-    <h3>Your shopping lists for <%= stores.name %> <a class="new-list-link" href="/store/<%= stores._id %>/new-list">Create New Shopping List</a></h3>
+    <div>
+        <h1><%= stores.name %> </h1>
+        <h3>Store data:</h3>
+        <p>Type of store: <%= stores.type %> </p>
+        <p>Cost: <%= stores.expensive %> </p>
+        <br>
+        <section>
+            <a href="/store/<%= stores._id %>/edit">(edit store)</a>
+        </section>
+        <br>
+        <section>
+            <form action="/store/<%= stores._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete store">
+            </form>
+        </section>
+        <br>
+        <br>
         
-    
-    
-    <% stores.lists.forEach(list => { %>
+        
+        <h3>Your shopping lists for <%= stores.name %> <a class="new-list-link" href="/store/<%= stores._id %>/new-list">Create New Shopping List</a></h3>
+            
+        
+        
+        <% stores.lists.forEach(list => { %>
+            <p>
+                <a href="/store/<%= stores._id %>/<%= list._id %>">
+                    <%= list.name %> 
+                </a>
+            </p>
+        <% }) %>
+        <br>
+        
+
+        
+
+        
+        <h3><%= stores.name %> Products <a class="new-item-link" href="/product/new">Create New Items</a></h3>
+        
         <p>
-            <a href="/store/<%= stores._id %>/<%= list._id %>">
-                <%= list.name %> 
-            </a>
+            <ul>
+                <% stores.products.forEach(product => { %>
+                    <li><%= product.name %></li>
+            <% }) %>
+            </ul>
         </p>
-    <% }) %>
-    <br>
-    
-
-    
-
-    
-    <h3><%= stores.name %> Products <a class="new-item-link" href="/product/new">Create New Items</a></h3>
-    
-    <p>
-        <ul>
-            <% stores.products.forEach(product => { %>
-                <li><%= product.name %></li>
-           <% }) %>
-        </ul>
-    </p>
-    <!-- <a href="/product">Products from <%= stores.name %> </a> -->
-    <br>
-    <br>
-    <a href="/store">All Stores</a>
+        <!-- <a href="/product">Products from <%= stores.name %> </a> -->
+        <br>
+        <br>
+        <a href="/store">All Stores</a>
+    </div>
 </body>
 </html>
