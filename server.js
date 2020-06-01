@@ -6,6 +6,7 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
+const authRequired = require("./middleware/authRequired");
 
 const PORT = 4000;
 
@@ -34,8 +35,8 @@ app.use(
 );
 
 app.use('/', controllers.auth);
-app.use('/store', controllers.store);
-app.use('/product', controllers.product);
+app.use('/store', authRequired, controllers.store);
+app.use('/product', authRequired, controllers.product);
 
 
 
