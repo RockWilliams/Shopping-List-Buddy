@@ -13,7 +13,7 @@ const PORT = 4000;
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res){
-    res.send("index");
+    res.render("User/index");
 });
 
 app.use(bodyParser.urlencoded({extended:false}));
