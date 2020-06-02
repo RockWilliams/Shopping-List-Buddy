@@ -20,7 +20,7 @@
             <p>
                 <select name="products" multiple>
                     <% stores.products.forEach(product => { %>
-                        <option value="<%= product._id %>"> <%= product.name %> </option>
+                        <option class="price" value="<%= product._id %>"> <%= product.name %> </option>
                     <% }) %>
                 </select>
             </p>

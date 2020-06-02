@@ -141,6 +141,7 @@ router.get('/:id/new-list', async function(req, res){
 });
 
 router.post("/:id", function(req,res){
+    console.log(req.body);
     db.List.create(req.body, function(err, createdList){
         if(err){
             console.log(err);

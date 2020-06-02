@@ -24,6 +24,12 @@ $("option").on('click', function(){
     console.log($('#list').length);
 });
 
+
+const bodyData = {name: "MOnday", products: ["soup","carrots"]};
+
+
+$.ajax({method: "POST", url: "/store/5ed67b08d7dc1916253e9510", contentType: "application/json", data: JSON.stringify(bodyData)});
+
 for(let i = 0; i < $('#list').length; i++){
 
 }
