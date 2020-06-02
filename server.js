@@ -14,11 +14,14 @@ const PORT = 4000;
 
 app.set('view engine', 'ejs');
 
-app.get('/', function(req, res){
-    res.render("User/index");
-});
+// app.get('/', function(req, res){
+//     res.render("User/index");
+// });
 
 app.use(bodyParser.urlencoded({extended:false}));
+
+app.use(bodyParser.json());
+
 app.use(methodOverride("_method"));
 app.use(express.static(__dirname + "/public"));
 app.use(
