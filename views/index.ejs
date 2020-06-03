@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="" type="text/css">
+    <link rel="stylesheet" href="/styles/home.css" type="text/css">
     <title>Home</title>
 </head>
 <body>
@@ -12,9 +12,12 @@
         <a href="/homepage">Home</a>
         <a href="/store">Your Stores</a>
         <a href="/store/lists">Your Lists</a>
-        <form action="/logout?_method=DELETE" method="POST">
-            <input type="submit" value="Logout">
-        </form>
+        <span>
+            <form action="/logout?_method=DELETE" method="POST">
+                <input type="submit" value="Logout">
+            </form>
+        </span>
+        
     </nav>
     </body>
 </html>
