@@ -154,7 +154,7 @@ router.post("/:id", function(req,res){
                 } else {
                     foundStore.lists.push(createdList);
                     foundStore.save();
-                    console.log(createdList);
+                    console.log(createdList.products);
                     res.redirect(`/store/${foundStore._id}`);
                 }
             });

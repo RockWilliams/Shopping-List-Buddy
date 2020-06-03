@@ -19,17 +19,36 @@ $("option").mousedown(function(element){
     $(select).focus();
 }).mousemove(function(element){element.preventDefault()});
 
-$("option").on('click', function(){
-    $('#list').append($('<li></li>').text(this.text));
-    console.log($('#list').length);
+let bodyData = {name:'', products: []};
+
+$("#add-list").on('click', function(){
+    $('#list').append($('<li></li>').text($('option:selected').text()));
+    let objectId = $('option:selected').val();
+    console.log(objectId);
+    bodyData.products.push(objectId);
+    console.log(bodyData);
+    $('option:selected').remove();
+});
+
+//!!!!!!!!!!
+// ask instructors about 
+// !!!!!!!!!!!
+
+
+// $('add-list').on('click', function(){
+//     let objectId = this.val();
+//     console.log(objectId);
+//     bodyData.products.push();
+//     console.log(bodydata);       
+// });
+const pageId = $('#store-id').text();
+console.log(pageId);
+
+$('#final').on('click', function(){
+    bodyData.name = $('#name').val();
+    $.ajax({method: "POST", url: `/store/${pageId}`, contentType: "application/json", data: JSON.stringify(bodyData), success: function(res){
+        window.location.href = `/store/${pageId}`;
+    }});
 });
 
 
-const bodyData = {name: "MOnday", products: ["soup","carrots"]};
-
-
-$.ajax({method: "POST", url: "/store/5ed67b08d7dc1916253e9510", contentType: "application/json", data: JSON.stringify(bodyData)});
-
-for(let i = 0; i < $('#list').length; i++){
-
-}
