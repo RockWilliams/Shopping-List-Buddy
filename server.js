@@ -40,9 +40,16 @@ app.get('/', function(req, res){
     res.render("User/index");
 });
 
+app.get("/homepage", function(req,res){
+    res.render("index");
+});
+
+
+
 app.use('/', controllers.auth);
 app.use('/store', authRequired, controllers.store);
 app.use('/product', authRequired, controllers.product);
+
 
 
 
