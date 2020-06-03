@@ -14,9 +14,7 @@ const PORT = 4000;
 
 app.set('view engine', 'ejs');
 
-// app.get('/', function(req, res){
-//     res.render("User/index");
-// });
+
 
 app.use(bodyParser.urlencoded({extended:false}));
 
@@ -38,9 +36,14 @@ app.use(
     })
 );
 
+app.get('/', function(req, res){
+    res.render("User/index");
+});
+
 app.use('/', controllers.auth);
 app.use('/store', authRequired, controllers.store);
 app.use('/product', authRequired, controllers.product);
+
 
 
 
