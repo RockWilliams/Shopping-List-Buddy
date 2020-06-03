@@ -177,6 +177,17 @@ router.get("/:id/:listId", function(req,res){
     
 });
 
+router.delete('/:id/:listId', async function(req,res){
+try{
+    console.log('test');
+    const findList = await db.List.findByIdAndDelete(req.params.listId);
+    res.redirect(`/store/${req.params.id}`);
+} catch(err){
+    console.log(err);
+    res.send({Message: "Internal Server Error"});
+}
+});
+
 // router.get("/:id", async function(request,res){
 //     try {
 //         const foundStore = await db.Store.findById(request.params.id);
