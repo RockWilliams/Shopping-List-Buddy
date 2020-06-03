@@ -30,6 +30,17 @@ router.get("/new", function(req,res){
     res.render("Store/new");
 });
 
+router.get("/lists", async function(req, res){
+    try {
+        const allLists = await db.List.find({});
+        const context = {lists: allLists}
+        res.render("List/display", context);
+    } catch (err) {
+        console.log(err);
+        res.send({Message: "Internal Server Error"});
+    }
+});
+
 router.post("/", function(req,res){
     db.Store.create(req.body, function(err, createdStore){
         if(err){
@@ -199,5 +210,7 @@ try{
 //         res.send({message: "Internal Server Error"});
 //     }
 // });
+
+
 
 module.exports = router;

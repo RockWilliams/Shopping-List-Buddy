@@ -44,7 +44,7 @@ router.post('/login', async function(req, res){
             id: foundUser._id,
             username: foundUser.username
         };
-        res.redirect('/store');
+        res.redirect('/homepage');
     } catch (err) {
         console.log(err);
         res.send({message: "Internal Server Error", error: err });
