@@ -21,14 +21,35 @@ $("option").mousedown(function(element){
 
 let bodyData = {name:'', products: []};
 
+let height = 100;
+
+let $heightCheck = $("#new-list-div").height();
+console.log($heightCheck);
+
 $("#add-list").on('click', function(){
-    $('#list').append($('<li></li>').text($('option:selected').text()));
-    let objectId = $('option:selected').val();
-    console.log(objectId);
-    bodyData.products.push(objectId);
-    console.log(bodyData);
-    $('option:selected').remove();
+    if($("option:selected").text() !== ""){
+        console.log(height);
+        if(height < $heightCheck){
+            height = height + 25;
+            if(height > $heightCheck){
+                height = $heightCheck;
+            }
+            $("#list-div").height(`${height}px`);
+            $('#list').append($('<li class="list-product"></li>').text($('option:selected').text()));
+            $("#list").append($('<hr style="width:100%"; color="black">'));
+            let objectId = $('option:selected').val();
+            console.log(objectId);
+            bodyData.products.push(objectId);
+            console.log(bodyData);
+            $('option:selected').remove();
+        };
+    }
+
+    
+    // if($("#list-div").attr("height") < "100vh")
 });
+
+console.log($("list-div").attr("height"));
 
 //!!!!!!!!!!
 // ask instructors about 

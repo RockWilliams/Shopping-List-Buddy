@@ -19,6 +19,10 @@ div {
     background-color: #DEBA6F;
     border-radius: 20px;
     padding: 20px;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 50vw;
 }
 
 h1 {
@@ -50,4 +54,31 @@ input {
 
 a:hover {
     transform: scale(1.1);
+}
+
+#flexbox {
+    position: absolute;
+    background: none;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+#new-list-div {
+    position: relative;
+    margin: 5px;
+}
+
+#list-div {
+    border-radius: 20px;
+    position: relative;
+    padding: 20px;
+    margin: 5px;
+    height: 100px;
+}
+
+.list-product {
+    padding-bottom: 1px;
+    padding-top: 5px;
+    list-style-type: none;
 }
