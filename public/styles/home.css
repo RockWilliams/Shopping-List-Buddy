@@ -17,13 +17,13 @@ header h1 {
     text-align: center;
 }
 
-nav {
+/* nav {
     position: relative;
     background-color: #DEBA6F;
     display: flex;
     height: 30px;
     border-bottom: solid black 2px;   
-}
+} */
 
 
 /* span {
@@ -34,13 +34,13 @@ nav {
   
     
 } */
-nav form {
+/* nav form {
     position: absolute;
     display: inline;
     height: 100%;
     right: 0;
-}
-nav input {
+} */
+/* nav input {
     font-family: Georgia, 'Times New Roman', Times, serif;
     right: 0;
     height: 100%;
@@ -49,25 +49,30 @@ nav input {
     border-style: none;
     font-size: 20px;
     color: white;
+} */
+.navbar {
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 input:hover {
     cursor: pointer;
 }
 
-.models {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-    height: 100%;
-    border-style: none;
+li {
     transition: background-color .7s linear;
-    padding-top: 3px;
     opacity: .7;
-    padding-left: 15px;
-    padding-right: 15px;
 }
 
-.models:hover {
+li:hover {
     background-color: rgba(0, 0, 255, 0.6);
+}
+.navbar{
+    width: 100%
+}
+.logout {
+    position: fixed;
+    right: 0;
+}
+ul{
+    width: 100%;
 }
