@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require("method-override");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const db = require('./models');
 
 const authRequired = require("./middleware/authRequired");
 
@@ -41,7 +42,19 @@ app.get('/', function(req, res){
 });
 
 app.get("/homepage", function(req,res){
-    res.render("index");
+    db.User.findById(req.session.currentUser.id).populate('stores').populate('lists').exec(function(err, foundUser){
+        if(err) {
+            console.log(err);
+            res.send({Message: "Internal Server Error"});
+        } else {
+            const context = {
+                stores: foundUser.stores,
+                lists: foundUser.lists
+            };
+            console.log(context);
+            res.render('index', context);
+        }
+    }); 
 });
 
 
