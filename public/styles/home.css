@@ -7,43 +7,65 @@
 body {
     height: 100vh;
     width: 100vw;
-    position: relative;
-
     background-color: #823038;
 }
 
-form {
-    display: inline-flex;
-}
 
-a {
-    text-decoration: none;
-    color: black;
-    font-size: 2em;
-    height: 100%;
-    border-style: none;
-    opacity: 0.65;
-    background-color: white;
-    position: absolute;
-}
 
 h1 {
     font-size: 4em;
 }
 
 nav {
+    position: relative;
     background-color: #DEBA6F;
     display: flex;
-    position: relative;
-    justify-content: space-between;
+    height: 30px    
 }
 
-input {
+
+/* span {
+    right: 0;
     background: none;
     font-size: 2em;
-    text-decoration: none;
+    height: 100%;
+  
+    
+} */
+nav form {
+    position: absolute;
+    display: inline;
+    height: 100%;
+    right: 0;
+}
+nav input {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    right: 0;
+    height: 100%;
+    width: 100px;
+    background-color: skyblue;
+    border-style: none;
+    font-size: 20px;
+    color: white;
+}
+input:hover {
+    cursor: pointer;
 }
 
-a:hover {
-    opacity: 1;
+.models {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    height: 100%;
+    border-style: none;
+    transition: background-color .7s linear;
+    padding-top: 3px;
+    opacity: .7;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.models:hover {
+    background-color: rgba(0, 0, 255, 0.6);
 }

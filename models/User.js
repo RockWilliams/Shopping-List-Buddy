@@ -8,7 +8,11 @@ const userSchema = new mongoose.Schema(
     stores: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Store'
-    }]
+    }],
+    lists: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'List'
+    }],
     },
     {timestamps: true}
 );

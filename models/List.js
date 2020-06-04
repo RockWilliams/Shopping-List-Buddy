@@ -9,7 +9,11 @@ const listSchema = new mongoose.Schema({
     products: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product'
-    }]
+    }],
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 const List = mongoose.model("List", listSchema);
