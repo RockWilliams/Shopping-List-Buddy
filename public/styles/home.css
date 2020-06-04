@@ -21,7 +21,8 @@ nav {
     position: relative;
     background-color: #DEBA6F;
     display: flex;
-    height: 30px;   
+    height: 30px;
+    border-bottom: solid black 2px;   
 }
 
 

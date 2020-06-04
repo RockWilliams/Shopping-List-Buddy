@@ -19,6 +19,7 @@ body {
     background-color: #823038;
     bottom: 0;
     position: fixed;
+    /* overflow-y: scroll; */
 }
 
 .content {
@@ -26,6 +27,14 @@ body {
     background-color: #DEBA6F;
     border-radius: 20px;
     padding: 20px;
+    top: 20px;
+    overflow: hidden;
+    bottom: 20px;
+    overflow-y: scroll;
+}
+
+.content::-webkit-scrollbar {
+    display: none;
 }
 
 h1 {
