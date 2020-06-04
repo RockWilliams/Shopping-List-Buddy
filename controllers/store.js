@@ -30,15 +30,29 @@ router.get("/new", function(req,res){
     res.render("Store/new");
 });
 
-router.get("/lists", async function(req, res){
-    try {
-        const allLists = await db.List.find({});
-        const context = {lists: allLists}
-        res.render("List/display", context);
-    } catch (err) {
-        console.log(err);
-        res.send({Message: "Internal Server Error"});
-    }
+// router.get("/lists", async function(req, res){
+//     try {
+//         const foundUser = await (await db.User.findById(req.session.currentUser.id)).populate('stores lists');
+//         console.log(foundUser);
+//         const context = {stores: foundUser.stores};
+//         res.render("List/display", context);
+//     } catch (err) {
+//         console.log(err);
+//         res.send({Message: "Internal Server Error"});
+//     }
+// });
+
+
+router.get("/lists", function(req, res){
+    db.User.findById(req.session.currentUser.id).populate('lists').exec(function(err, foundUser){
+        if(err) {
+            console.log(err);
+            res.send({Message: "Internal Server Error"});
+        } else {
+            const context = {lists: foundUser.lists};
+            res.render('List/display', context);
+        }
+    })
 });
 
 router.post("/", function(req,res){
@@ -163,10 +177,20 @@ router.post("/:id", function(req,res){
                     console.log(err);
                     res.send({message: "Internal Server Error"});
                 } else {
-                    foundStore.lists.push(createdList);
-                    foundStore.save();
-                    console.log(createdList.products);
-                    res.redirect(`/store/${foundStore._id}`);
+                    db.User.findById(req.session.currentUser.id, function(err, foundUser){
+                        if(err) {
+                            console.log(err)
+                            res.send({message: "Internal Server Error"});
+                        } else {
+                            foundUser.lists.push(createdList);
+                            foundUser.save();
+                            foundStore.lists.push(createdList);
+                            foundStore.save();
+                            console.log(createdList.products);
+                            res.redirect(`/store/${foundStore._id}`);
+                        }
+                    })
+                   
                 }
             });
             
