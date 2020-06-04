@@ -7,19 +7,22 @@
     <title>new</title>
 </head>
 <body>
-    <div>
-        <h1>Add a new product</h1>
-        <form action="/product" method="POST">
-            <input type="text" name="name" placeholder="Item Name">
-            <input type="text" name="price" placeholder="Price">
-            <input type="text" name="category" placeholder="category">
-            <select name="store">
-                    <% user.stores.forEach(store => { %>
-                        <option value="<%= store._id %>"><%= store.name %></option>
-                <% }) %> 
-            </select>
-            <input type="submit" value="Add Product">
-        </form>
+    <div class="flexbox">
+        <div class="content">
+            <h1>Add a new product</h1>
+            <form action="/product" method="POST">
+                <input type="text" name="name" placeholder="Item Name">
+                <input type="text" name="price" placeholder="Price">
+                <input type="text" name="category" placeholder="category">
+                <select name="store">
+                        <% user.stores.forEach(store => { %>
+                            <option value="<%= store._id %>"><%= store.name %></option>
+                    <% }) %> 
+                </select>
+                <input type="submit" value="Add Product">
+            </form>
+        </div>
     </div>
+    
 </body>
 </html>
