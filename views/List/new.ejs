@@ -13,27 +13,30 @@
     <link rel="stylesheet"  href="/styles/main.css" type="text/css">
 </head>
 <body>
-    <div id="flexbox">
-        <div id="new-list-div">
-            <h1>New Shopping List for <%= stores.name %> </h1>
-            <p hidden id='store-id'><%= stores._id %></p>
-                <input id ="name" type="text" name="name" placeholder="name">
-                <p>
-                    <select name="products">
-                        <% stores.products.forEach(product => { %>
-                            <option value="<%= product._id %>"> <%= product.name %> </option>
-                        <% }) %>
-                    </select>
-                </p>
-            <button id="add-list">Add to list!</button>
-            <button id="final">Finalize</button>
+    <div class="flexbox">
+        <div id="flexbox" class="content">
+            <div id="new-list-div">
+                <h1>New Shopping List for <%= stores.name %> </h1>
+                <p hidden id='store-id'><%= stores._id %></p>
+                    <input id ="name" type="text" name="name" placeholder="name">
+                    <p>
+                        <select name="products">
+                            <% stores.products.forEach(product => { %>
+                                <option value="<%= product._id %>"> <%= product.name %> </option>
+                            <% }) %>
+                        </select>
+                    </p>
+                <button id="add-list">Add to list!</button>
+                <button id="final">Finalize</button>
+            </div>
+            <div id="list-div">
+                <h3>Adding to list...</h3>
+                <ul id="list">
+                
+                </ul>
+            </div>
         </div>
-    <div id="list-div">
-        <h3>Adding to list...</h3>
-        <ul id="list">
-            
-        </ul>
     </div>
-    </div>
+    
 </body>
 </html>

@@ -7,20 +7,23 @@
     <title>List Show Page</title>
 </head>
 <body>
-    <div>
-        <h1><%= lists.name %> </h1>
-        
-        <% lists.products.forEach(product => { %>
-            <p>
-                <%= product.name %> 
-            </p>
-        <% }); %>
-
-        <br>
-        <a href="/store/<%= store %>">Back to store</a>
-        <form action="/store/<%= store %>/<%= lists._id %>?_method=DELETE" method="POST">
-            <input type="submit" value="Delete List">
-        </form>
+    <div class="flexbox">
+        <div class="content">
+            <h1><%= lists.name %> </h1>
+            
+            <% lists.products.forEach(product => { %>
+                <p>
+                    <%= product.name %> 
+                </p>
+            <% }); %>
+    
+            <br>
+            <a href="/store/<%= store %>">Back to store</a>
+            <form action="/store/<%= store %>/<%= lists._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete List">
+            </form>
+        </div>
     </div>
+    
 </body>
 </html>

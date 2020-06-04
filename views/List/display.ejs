@@ -7,16 +7,19 @@
     <title>Lists Display Page</title>
 </head>
 <body>
-    <div>
-    <h1>Your Lists:</h1>
-    
-        <% lists.forEach(list => { %> 
-            <p>
-                <a href="/store/<%= list.store %>/<%= list._id %>">
-                    <%= list.name %>
-                </a>
-            </p>
-        <% }) %>
+    <div class="flexbox">
+        <div class="content">
+            <h1>Your Lists:</h1>
+            
+                <% lists.forEach(list => { %> 
+                    <p>
+                        <a href="/store/<%= list.store %>/<%= list._id %>">
+                            <%= list.name %>
+                        </a>
+                    </p>
+                <% }) %>
+        </div>
     </div>
+    
 </body>
 </html>
