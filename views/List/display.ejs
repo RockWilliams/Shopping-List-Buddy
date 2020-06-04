@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="/styles/main.css" type="text/css">
     <title>Lists Display Page</title>
 </head>
 <body>
+    <div>
     <h1>Your Lists:</h1>
     
         <% lists.forEach(list => { %> 
             <p>
-                <%= list.name %>
+                <a href="/store/<%= list.store %>/<%= list._id %>">
+                    <%= list.name %>
+                </a>
             </p>
         <% }) %>
+    </div>
 </body>
 </html>

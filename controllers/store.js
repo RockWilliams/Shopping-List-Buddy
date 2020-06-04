@@ -50,6 +50,7 @@ router.get("/lists", function(req, res){
             res.send({Message: "Internal Server Error"});
         } else {
             const context = {lists: foundUser.lists};
+            console.log(context);
             res.render('List/display', context);
         }
     })
@@ -131,6 +132,9 @@ router.delete("/:id", async function(req,res){
         const deletedProducts = await db.Product.remove({
             store: deletedStore._id,
         });
+        const deletedList = await db.List.remove({
+            store: deletedStore._id,
+        })
         res.redirect("/store");
     } catch (err) {
         console.log(err);
@@ -186,6 +190,9 @@ router.post("/:id", function(req,res){
                             foundUser.save();
                             foundStore.lists.push(createdList);
                             foundStore.save();
+
+                            createdList.store.push(foundStore);
+                            createdList.save();
                             console.log(createdList.products);
                             res.redirect(`/store/${foundStore._id}`);
                         }
