@@ -3,35 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/home.css" type="text/css">
-    <link rel="stylesheet" href="/styles/main.css" type="text/css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="/styles/main.css" type="text/css"> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/styles/home.css" type="text/css">
+<link rel="stylesheet" href="/styles/main.css" type="text/css">
+<title>Document</title>
 </head>
 <body>
     <header>
         <h1>List Buddy</h1>
-            <nav>
-                <a class="models" href="/homepage">Home</a>
-                <a class ="models" href="/store">Your Stores</a>
-                <a class="models" href="/store/lists">Your Lists</a>
-                <form action="/logout?_method=DELETE" method="POST">
-                    <input type="submit" value="Logout">
-                </form>
+            <nav class="navbar navbar-expand bg-dark">
+                <ul class="navbar-nav">
+                    <li>
+                        <a class="nav-link" href="/homepage">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Stores</a>
+                            <div class="dropdown-menu">
+                                <% stores.forEach(store => { %>
+                                    <a class="dropdown-item" href="/store/<%=store._id%>"><%= store.name %></a> 
+                              <% }) %>
+                            </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Lists</a>
+                            <div class="dropdown-menu">
+                                <% lists.forEach(list => { %>
+                                    <a class="dropdown-item" href="/store/<%=list.store%>/<%= list._id %>"><%= list.name %></a> 
+                              <% }) %>
+                            </div>
+                    </li>
+                        <form class="form-inline logout" action="/logout?_method=DELETE" method="POST">
+                            <input class="form-control mr-sm-2" type="submit" value="Logout">
+                        </form>
+                </ul>
+                
+                
+                
             </nav>
-    </header>
+        </header>
     <div class="flexbox">
         <div class="content">
-            <h1><%= stores.name %> </h1>
+            <h1><%= store.name %> </h1>
             <h3>Store data:</h3>
-            <p class="storeData">Type of store: <%= stores.type %> </p>
-            <p class="storeData">Cost: <%= stores.expensive %> </p>
+            <p class="storeData">Type of store: <%= store.type %> </p>
+            <p class="storeData">Cost: <%= store.expensive %> </p>
             <br>
             <section>
-                <a href="/store/<%= stores._id %>/edit">(edit store)</a>
+                <a href="/store/<%= store._id %>/edit">(edit store)</a>
             </section>
             <br>
             <section>
-                <form action="/store/<%= stores._id %>?_method=DELETE" method="POST">
+                <form action="/store/<%= store._id %>?_method=DELETE" method="POST">
                     <input type="submit" value="Delete store">
                 </form>
             </section>
@@ -39,13 +66,13 @@
             <br>
             
             
-            <h3>Your shopping lists for <%= stores.name %></h3>
-            <a class="new-list-link" href="/store/<%= stores._id %>/new-list">Create New Shopping List</a>
+            <h3>Your shopping lists for <%= store.name %></h3>
+            <a class="new-list-link" href="/store/<%= store._id %>/new-list">Create New Shopping List</a>
             
             
-            <% stores.lists.forEach(list => { %>
+            <% store.lists.forEach(list => { %>
                 <p>
-                    <a href="/store/<%= stores._id %>/<%= list._id %>">
+                    <a href="/store/<%= store._id %>/<%= list._id %>">
                         <%= list.name %> 
                     </a>
                 </p>
@@ -61,12 +88,12 @@
             
             <p>
                 <ul>
-                    <% stores.products.forEach(product => { %>
+                    <% store.products.forEach(product => { %>
                         <li><%= product.name %></li>
                 <% }) %>
                 </ul>
             </p>
-            <!-- <a href="/product">Products from <%= stores.name %> </a> -->
+            <!-- <a href="/product">Products from <%= store.name %> </a> -->
             <br>
             <br>
             <a href="/store">All Stores</a>

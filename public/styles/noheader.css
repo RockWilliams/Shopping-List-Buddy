@@ -7,35 +7,44 @@
 body {
     height: 100vh;
     width: 100vw;
-    
+    overflow: hidden;
 }
 
 .flexbox {
+    position: relative;
     display: flex;
+    flex-direction: column;
+    height: 100%;
     width: 100vw;
-    height: calc(100vh - 104px);
-    align-items: center;
-    justify-content: center;
     background-color: #823038;
-    bottom: 0;
-    position: fixed;
     /* overflow-y: scroll; */
 }
+main {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    bottom: 0;
+    overflow: hidden;
+}
+
 
 .content {
+    overflow: hidden;
     position: absolute;
     background-color: #DEBA6F;
     border-radius: 20px;
     padding: 20px;
-    top: 50px;
-    overflow: hidden;
-    bottom: 30px;
-    overflow-y: scroll;
+    top: 20px;
+    width: 340px;
+    padding-bottom: 20px;
+    border: 20px;
+    height: 100px;
+    
 }
 
-.content::-webkit-scrollbar {
+/* .content::-webkit-scrollbar {
     display: none;
-}
+} */
 
 h1 {
     font-size: 4em;
@@ -44,7 +53,6 @@ h1 {
 h3 {
     font-size: 3em;
 }
-
 /* a {
     text-decoration: none;
     color: black;
@@ -69,7 +77,7 @@ h3 {
 }  fix later*/
 
 #flexbox {
-    position: absolute;
+    position: relative;
     background: none;
     display: flex;
     height: 100vh;
@@ -77,14 +85,14 @@ h3 {
 }
 
 #new-list-div {
-    position: relative;
     margin: 5px;
     left: 0;
     bottom: 0;
-    height: 100vh;
-    width: 50vw;
+    width: 70vw;
 }
-
+hr {
+    margin: 0;
+}
 #list-div {
     border-radius: 20px;
     position: relative;
@@ -97,12 +105,4 @@ h3 {
     padding-bottom: 1px;
     padding-top: 5px;
     list-style-type: none;
-}
-
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 104px;
-    z-index: 10;
 }

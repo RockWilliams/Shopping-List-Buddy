@@ -81,15 +81,26 @@ router.get("/:id", function(request,res){
             console.log(err);
             res.send({message: "Internal Server Error"});
         } else{
-            console.log(foundStore);
-            const context = {stores: foundStore};
-            res.render("Store/show", context);
-        
+            db.User.findById(request.session.currentUser.id).populate('stores').populate('lists').exec(function(err, foundUser){
+                if(err) {
+                    console.log(err);
+                    res.send({Message: "Internal Server Error"});
+                } else {
+                    const context = {
+                        stores: foundUser.stores,
+                        lists: foundUser.lists,
+                        store: foundStore
+                    };
+                    console.log(foundStore);
+                    res.render("Store/show", context);
+                    
         }
     });
         //const foundList = await db.Store.findById({});
-    }
-);
+
+
+    }});
+});
 
 router.get("/:id/edit", async function(req,res){
     try {
@@ -147,12 +158,22 @@ router.get('/:id/new-list', async function(req, res){
         if(err){
             console.log(err);
             res.send({message: "Internal Server Error"});
-        } else{
-            console.log(foundStore);
-            const context = {stores: foundStore};
-            res.render("List/new", context)
+        } else{ 
+            db.User.findById(req.session.currentUser.id).populate('stores').populate('lists').exec(function(err, foundUser){
+            if(err) {
+                console.log(err);
+                res.send({Message: "Internal Server Error"});
+            } else {
+                const context = {
+                    stores: foundUser.stores,
+                    lists: foundUser.lists,
+                    store: foundStore
+                };
+                console.log(foundStore);
+                res.render("List/new", context);
         }
     });
+     } });
 
 
    /* try{
