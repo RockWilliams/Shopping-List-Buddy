@@ -16,7 +16,16 @@ const db = require('../models');
 
 
 router.get("/new", function(req,res){
-    res.render("Store/new");
+    db.User.findById(req.session.currentUser.id).populate('stores lists').exec(function(err, foundUser){
+        if (err) {
+            console.log(err);
+            res.send({Message: "Internal Server Error"});
+        } else {
+            const context = {stores: foundUser.stores, lists: foundUser.lists} 
+            res.render("Store/new", context);
+        }
+    
+    })
 });
 
 // router.get("/lists", async function(req, res){
@@ -57,7 +66,7 @@ router.post("/", function(req,res){
                 } else{
                     foundUser.stores.push(createdStore);
                     foundUser.save();
-                    res.redirect("/store");
+                    res.redirect(`/store/${createdStore._id}`);
                 }
             })
         }
