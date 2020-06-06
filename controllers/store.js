@@ -14,17 +14,6 @@ const db = require('../models');
 //     }
 // });
 
-router.get('/', function(req, res){
-    db.User.findById(req.session.currentUser.id).populate('stores').exec(function(err, foundUser){
-        if (err) {
-            console.log(err);
-        } else {
-            const context = {user: foundUser};
-            res.render("Store/index", context);
-            console.log(context);
-        }
-    })
-});
 
 router.get("/new", function(req,res){
     res.render("Store/new");
