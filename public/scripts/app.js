@@ -30,13 +30,13 @@ $("#add-list").on('click', function(){
     if($("option:selected").text() !== ""){
         console.log($heightCheck);
         if(height < $("main").height()){
-            height = height + 40;
+            height = height + 43;
             if(height > $("main").height()){
                 height = $("main").height() - 20;
             }
             $("#list-div").height(`${height}px`);
             $('#list').append($('<li class="list-product"></li>').text($('option:selected').text()));
-            $("#list").append($('<hr style="width:100%"; color="white">'));
+            $("#list").append($('<hr class="hr" style="width:100%">'));
             let objectId = $('option:selected').val();
             console.log(objectId);
             bodyData.products.push(objectId);

@@ -58,9 +58,10 @@
             <h1><%= list.name %> </h1>
             
             <% list.products.forEach(product => { %>
-                <p>
+                <p class="products-list">
                     <%= product.name %> 
                 </p>
+                <hr class="line" style="width:100%">
             <% }); %>
     
             <br>
