@@ -23,16 +23,16 @@ let bodyData = {name:'', products: []};
 
 let height = 100;
 
-let $heightCheck = $("#new-list-div").height();
+let $heightCheck = $("main").height();
 console.log($heightCheck);
 
 $("#add-list").on('click', function(){
     if($("option:selected").text() !== ""){
-        console.log(height);
-        if(height < $heightCheck){
-            height = height + 25;
-            if(height > $heightCheck){
-                height = $heightCheck;
+        console.log($heightCheck);
+        if(height < $("main").height()){
+            height = height + 35;
+            if(height > $("main").height()){
+                height = $("main").height() - 20;
             }
             $("#list-div").height(`${height}px`);
             $('#list').append($('<li class="list-product"></li>').text($('option:selected').text()));
