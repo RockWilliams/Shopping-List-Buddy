@@ -10,7 +10,9 @@ body {
     background-color: #823038;
 }
 
-
+a {
+    font-size: 1.5em;
+}
 
 header h1 {
     font-size: 4em;
@@ -70,8 +72,9 @@ li:hover {
     width: 100%
 }
 .logout {
-    position: fixed;
+    position: absolute;
     right: 0;
+    height: 100%
 }
 ul{
     width: 100%;
