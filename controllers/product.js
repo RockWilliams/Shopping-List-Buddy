@@ -8,11 +8,11 @@ router.get('/', function(req,res){
 })
 
 router.get("/new", function(req, res){
-    db.User.findById(req.session.currentUser.id).populate('stores').exec(function(err, foundUser){
+    db.User.findById(req.session.currentUser.id).populate('stores lists').exec(function(err, foundUser){
         if(err){
             console.log(err);
         } else{
-            const context = {user: foundUser}
+            const context = {user: foundUser,stores: foundUser.stores, lists: foundUser.lists}
             res.render('Product/new', context);
         }
     }); 
