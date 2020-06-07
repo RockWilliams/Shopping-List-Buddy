@@ -10,7 +10,9 @@ body {
     background-color: #823038;
 }
 
-
+a {
+    font-size: 1.5em;
+}
 
 header h1 {
     font-size: 4em;
@@ -50,6 +52,7 @@ header h1 {
     font-size: 20px;
     color: white;
 } */
+
 .navbar {
     padding-top: 0px;
     padding-bottom: 0px;
@@ -70,9 +73,14 @@ li:hover {
     width: 100%
 }
 .logout {
-    position: fixed;
+    position: absolute;
     right: 0;
+    height: 100%
 }
 ul{
     width: 100%;
+}
+
+.hr {
+    background-color: #F7F7EF;
 }

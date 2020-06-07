@@ -92,15 +92,13 @@ router.get("/:id", function(request,res){
                     console.log(foundStore);
                     res.render("Store/show", context);
                     
-        }
-    });
+                }
+            });
         //const foundList = await db.Store.findById({});
-
-
-    }});
+        }});
 });
 
-router.get("/:id/edit", async function(req,res){
+/* router.get("/:id/edit", async function(req,res){
     try {
         const foundStore = await db.Store.findById(req.params.id);
         const context = {stores: foundStore};
@@ -110,6 +108,31 @@ router.get("/:id/edit", async function(req,res){
         res.send({message: "Internal Server Error"});
     }
     
+}); */
+
+router.get("/:id/edit", function(req,res){
+    db.Store.findById(req.params.id, function(err, foundStore){
+        if (err) {
+            console.log(err);
+            res.send({Message: "Internal Server Error"});
+        } else {
+            db.User.findById(req.session.currentUser.id).populate('stores').populate('lists').exec(function(err, foundUser){
+                if(err) {
+                    console.log(err);
+                    res.send({Message: "Internal Server Error"});
+                } else {
+                    const context = {
+                        store: foundStore,
+                        stores: foundUser.stores,
+                        lists: foundUser.lists,
+                    };
+                    console.log(foundStore);
+                    res.render("Store/edit", context);
+                    
+                }
+            });
+        }
+    });
 });
 
 router.put("/:id", function(req,res){
@@ -144,7 +167,7 @@ router.delete("/:id", async function(req,res){
         const deletedList = await db.List.remove({
             store: deletedStore._id,
         })
-        res.redirect("/store");
+        res.redirect("/homepage");
     } catch (err) {
         console.log(err);
         res.send({message: "Internal Server Error"});
@@ -230,9 +253,16 @@ router.get("/:id/:listId", function(req,res){
             console.log(err);
             res.send({message: "Internal Server Error"});
         } else {
-            const storeId = req.params.id;
-            const context = {lists: foundList, store: storeId};
-            res.render("List/show", context);
+            db.User.findById(req.session.currentUser.id).populate("stores lists").exec(function(err, foundUser){
+                if (err) {
+                    console.log(err);
+                    res.send({message: "Internal Server Error"});
+                } else {
+                    const storeId = req.params.id;
+                    const context = {list: foundList, store: storeId, stores: foundUser.stores, lists: foundUser.lists};
+                    res.render("List/show", context);
+                }
+            })
         }
     });
     

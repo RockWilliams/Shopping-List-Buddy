@@ -28,6 +28,13 @@
                         <a class="nav-link" href="/homepage">Home</a>
                     </li>
                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Add</a>
+                        <div class="dropdown-menu">
+                            <a href="/store/new" class="dropdown-item">Store</a>
+                            <a href="/product/new" class="dropdown-item">Product</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Stores</a>
                             <div class="dropdown-menu">
                                 <% stores.forEach(store => { %>
