@@ -63,7 +63,7 @@
             <div id="flex-new-list">
                 <h1>New Shopping List for <%= store.name %> </h1>
                 <p hidden id='store-id'><%= store._id %></p>
-                    <input id ="name" type="text" name="name" placeholder="name">
+                    <input id ="name" type="text" name="name" placeholder="List Name">
                     <p>
                         <select name="products">
                             <% store.products.forEach(product => { %>
@@ -71,8 +71,10 @@
                             <% }) %>
                         </select>
                     </p>
+                    <div class="flex-buttons">
                 <button id="add-list">Add to list!</button>
                 <button id="final">Finalize</button>
+                </div>
             </div>
             <div id="list-div" class="content">
                 <h3>Adding to list...</h3>
