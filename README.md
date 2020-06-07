@@ -5,16 +5,16 @@ MVP:
 
 Technologies:
 
-- Front End
- - Bootstrap
- - Jquery
-- Backend
- - bcrypt
- - body parser
- - express/sessions
- - mongoDB
- - mongoose
- 
+* Front End
+  * Bootstrap
+  * Jquery
+* Backend
+  * bcrypt
+  * body parser
+  * express/sessions
+  * mongoDB
+  * mongoose
+
 
 User Stories:
  - User logs in or registers
