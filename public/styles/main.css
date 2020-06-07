@@ -16,7 +16,7 @@ body {
     height: calc(100vh - 104px);
     align-items: center;
     justify-content: center;
-    background-color: #823038;
+    background-color: rgb(27, 40, 50);
     bottom: 0;
     position: fixed;
     /* overflow-y: scroll; */
@@ -147,5 +147,6 @@ header {
 }
 
 .list-show {
-    background-color: #343A40;
+    border: solid #DEBA6F 2px;
+    background-color: rgb(19, 32, 42);
 }

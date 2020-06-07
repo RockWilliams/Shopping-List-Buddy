@@ -16,7 +16,6 @@ body {
     flex-direction: column;
     height: 100%;
     width: 100vw;
-    background-color: #823038;
     /* overflow-y: scroll; */
 }
 main {
@@ -32,7 +31,7 @@ main {
 .content {
     overflow: hidden;
     position: absolute;
-    background-color:#343A40;
+    background-color:rgb(19,32,42);
     border-radius: 20px;
     padding: 20px;
     top: 20px;
@@ -155,10 +154,19 @@ hr {
 input {
     font-size: 1.5em;
     width: 200px;
+    background-color: #343A40;
+    color: #1868C5;
+    border-style: none;
+}
+
+::placeholder {
+    color: #1868C5
 }
 
 select {
     font-size: 1.5em;
+    background-color: #343A40;
+    color: #1868C5;
 }
 
 button {
@@ -166,4 +174,38 @@ button {
     border: none;
     border-radius: 5px;
     padding: 5px;
+}
+
+#add-list {
+background-color: #343A40;
+color: #1868C5;
+}
+
+#final {
+    background-color: #DEBA6F;
+    color: #1868C5;
+}
+#flex-new-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-buttons {
+    display: flex;
+}
+.flex-buttons button {
+    margin: 10px;
+}
+
+select {
+    margin: 10px;
+}
+
+#name {
+    margin: 10px;
+}
+.main-break {
+    height: 2px;
+    background-color: rgb(9, 22, 32);
 }
