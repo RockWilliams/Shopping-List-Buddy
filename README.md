@@ -27,6 +27,9 @@ User Stories:
 Sprints: 
 <img src="Pictures/Project-One-Sprints.png">
 
+ERD:  
+<img src="Pictures/ERD.png">
+
 Starting page: 
 <img src="wireframes/1-Log-in-sign-up-page.png">
 
