@@ -154,4 +154,16 @@ hr {
 
 input {
     font-size: 1.5em;
+    width: 200px;
+}
+
+select {
+    font-size: 1.5em;
+}
+
+button {
+    font-size: 1.5em;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
 }
