@@ -9,7 +9,7 @@ const db = require('./models');
 
 const authRequired = require("./middleware/authRequired");
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 
 
@@ -26,7 +26,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(
     session({
         store: new MongoStore ({
-            url: 'mongodb://localhost:27017/store'
+            url: process.env.MONGODB_URI || 'mongodb://localhost:27017/store'
         }),
         secret: "Secret",
         resave: false,
