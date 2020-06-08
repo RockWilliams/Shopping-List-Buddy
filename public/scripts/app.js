@@ -19,7 +19,7 @@ $("option").mousedown(function(element){
     $(select).focus();
 }).mousemove(function(element){element.preventDefault()});
 
-let bodyData = {name:'', products: []};
+let bodyData = {name:'', products: [], quantity: []};
 
 let height = 100;
 
@@ -35,12 +35,19 @@ $("#add-list").on('click', function(){
                 height = $("main").height() - 20;
             }
             $("#list-div").height(`${height}px`);
-            $('#list').append($('<li class="list-product"></li>').text($('option:selected').text()));
+            $('#list').append($('<li class="list-product"></li>')
+            .append($('<span></span>')
+            .text($('option:selected').text()))
+            .append($('<span class="num"></span>')
+            .text("x" + $('#quantity').val())));
             $("#list").append($('<hr class="hr" style="width:100%">'));
+            let quantityNum = $('#quantity').val();
             let objectId = $('option:selected').val();
             console.log(objectId);
+            bodyData.quantity.push(quantityNum);
             bodyData.products.push(objectId);
             console.log(bodyData);
+            $('#quantity').val('');
             $('option:selected').remove();
         };
     }
@@ -73,3 +80,10 @@ $('#final').on('click', function(){
 });
 
 
+$('.products-list').mouseover(function(){
+    console.log('working');
+    console.log($(this).children('.product-details'));
+    $(this).children('.product-details').css('display', 'inline');
+}).mouseout(function(){
+    $(this).children('.product-details').css('display', 'none');
+});

@@ -16,16 +16,23 @@ body {
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background-color: #823038;
+    background-color: rgb(27, 40, 50);
     bottom: 0;
     position: fixed;
 }
 
 .content {
     position: absolute;
-    background-color: #DEBA6F;
+    background-color: rgb(19, 32, 42);
     border-radius: 20px;
     padding: 20px;
+}
+header {
+    text-align: center;
+    color: #DEBA6F;
+}
+.content h1 {
+    color: #DEBA6F;
 }
 
 h1 {
@@ -35,11 +42,19 @@ h1 {
 h3 {
     font-size: 3em;
 }
+input{
+    font-size: 1.5em;
+    width: 200px;
+    background-color: #343A40;
+    color: #1868C5;
+    border-style: none;
+    border-radius: 5px;
+}
 
 a {
     text-decoration: none;
-    color: black;
-    transition: .3s linear;
+    color: #1868C5;
+    transition: transform linear .3s;
     display: block;
     transform-origin: left;
     font-size: 2em;

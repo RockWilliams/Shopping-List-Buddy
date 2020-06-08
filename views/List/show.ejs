@@ -11,6 +11,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/styles/main.css" type="text/css">
 <link rel="stylesheet" href="/styles/home.css" type="text/css">
+<link rel="stylesheet" href="/styles/noheader.css" type="text/css">
+<script src="/scripts/app.js" defer></script>
+
     
     
     <title>List Show Page</title>
@@ -19,7 +22,7 @@
     <div class="flexbox">
     <header>
         <h1>List Buddy</h1>
-            <nav class="navbar navbar-expand bg-dark">
+            <nav class="navbar navbar-expand">
                 <ul class="navbar-nav">
                     <li>
                         <a class="nav-link" href="/homepage">Home</a>
@@ -56,24 +59,27 @@
                 
             </nav>
         </header>
-    
+    <main class="show-list-main">
         <div class="content list-show">
+            <h3><%= store.name %></h3>
             <h1><%= list.name %> </h1>
-            
-            <% list.products.forEach(product => { %>
+            <% for(let i = 0; i < list.products.length; i++){ %>
+                
                 <p class="products-list">
-                    <%= product.name %> 
-                </p>
+                   <span class="span-product-name"> <%= list.products[i].name %> </span>
+                  <span style="display:none" class="product-details"> Price: $<%= list.products[i].price %> Category: <%= list.products[i].category %></span>
+                   <span class="num"> x<%= list.quantity[i] %></span></p>
                 <hr class="line" style="width:100%">
-            <% }); %>
-    
+            <% }; %>
             <br>
-            <a href="/store/<%= store %>">Back to store</a>
-            <form action="/store/<%= store %>/<%= list._id %>?_method=DELETE" method="POST">
+            <a href="/store/<%= store._id %>">Back to store</a>
+            <form action="/store/<%= store._id %>/<%= list._id %>?_method=DELETE" method="POST">
                 <input class="list-delete" type="submit" value="Delete List">
             </form>
         </div>
+    </main> 
     </div>
-    
+    <footer><script> </script></footer>
+
 </body>
 </html>

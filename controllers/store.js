@@ -258,9 +258,16 @@ router.get("/:id/:listId", function(req,res){
                     console.log(err);
                     res.send({message: "Internal Server Error"});
                 } else {
-                    const storeId = req.params.id;
-                    const context = {list: foundList, store: storeId, stores: foundUser.stores, lists: foundUser.lists};
-                    res.render("List/show", context);
+                    db.Store.findById(req.params.id, function(err, foundStore){
+                        if(err){
+                            console.log(err);
+                            res.send({Message: "Internal Server Error"});
+                        } else {
+                            const context = {list: foundList, store: foundStore, stores: foundUser.stores, lists: foundUser.lists};
+                            res.render("List/show", context);
+                        }
+                    });
+                    
                 }
             })
         }

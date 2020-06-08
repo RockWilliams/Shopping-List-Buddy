@@ -10,13 +10,14 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/styles/home.css" type="text/css">
-    <link rel="stylesheet" href="/styles/main.css" type="text/css">
+    <link rel="stylesheet" href="/styles/noheader.css" type="text/css">
     <title>Edit store</title>
 </head>
 <body>
+    <div class="flex-add">
     <header>
         <h1>List Buddy</h1>
-            <nav class="navbar navbar-expand bg-dark">
+            <nav class="navbar navbar-expand">
                 <ul class="navbar-nav">
                     <li>
                         <a class="nav-link" href="/homepage">Home</a>
@@ -53,8 +54,7 @@
                 
             </nav>
         </header>
-    <div class="flexbox">
-        <div class="content">
+       <main class="add-content">
             <h1>Edit a Store</h1>
             <form action="/store/<%= store._id %>?_method=PUT" method="POST">
                 <input type="text" name="name" value="<%= store.name %>">
@@ -62,8 +62,10 @@
                 <input type="text" name="expensive" value="<%= store.expensive %>">
                 <input type="submit" value="Update Store">
             </form>
-        </div>
-    </div>
+            </main>
+        
     
+    </div>
+    <footer><script> </script></footer>
 </body>
 </html>

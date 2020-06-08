@@ -22,7 +22,7 @@
     <div class="flexbox" >
     <header>
         <h1>List Buddy</h1>
-            <nav class="navbar navbar-expand bg-dark">
+            <nav class="navbar navbar-expand">
                 <ul class="navbar-nav">
                     <li>
                         <a class="nav-link" href="/homepage">Home</a>
@@ -59,17 +59,18 @@
                 
             </nav>
         </header>
-        <main>
+        <main class="create-list-main">
             <div id="flex-new-list">
                 <h1>New Shopping List for <%= store.name %> </h1>
                 <p hidden id='store-id'><%= store._id %></p>
                     <input id ="name" type="text" name="name" placeholder="List Name">
                     <p>
-                        <select name="products">
+                       <select name="products">
                             <% store.products.forEach(product => { %>
                                 <option value="<%= product._id %>"> <%= product.name %> </option>
                             <% }) %>
                         </select>
+                        <input type="text" name="quantity" id ="quantity" placeholder="Quantity">
                     </p>
                     <div class="flex-buttons">
                 <button id="add-list">Add to list!</button>
@@ -77,7 +78,7 @@
                 </div>
             </div>
             <div id="list-div" class="content">
-                <h3>Adding to list...</h3>
+                <h3>List Preview...</h3>
                 <ul id="list">
                 
                 </ul>
