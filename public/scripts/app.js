@@ -51,24 +51,10 @@ $("#add-list").on('click', function(){
             $('option:selected').remove();
         };
     }
-
-    
-    // if($("#list-div").attr("height") < "100vh")
 });
 
 console.log($("list-div").attr("height"));
 
-//!!!!!!!!!!
-// ask instructors about 
-// !!!!!!!!!!!
-
-
-// $('add-list').on('click', function(){
-//     let objectId = this.val();
-//     console.log(objectId);
-//     bodyData.products.push();
-//     console.log(bodydata);       
-// });
 const pageId = $('#store-id').text();
 console.log(pageId);
 
