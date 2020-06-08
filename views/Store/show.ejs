@@ -54,9 +54,9 @@
                 
             </nav>
         </header>
-        <main>
-            <div class="content content-fixed">
-                <h1><%= store.name %> </h1>
+        <main class="show-store-main">
+            <div class="content-fixed">
+                <h1 class="store-name"><%= store.name %> </h1>
                 <hr class="main-break">
                 <h3>Store data:</h3>
                 <p class="storeData">Type of store: <%= store.type %> </p>
@@ -72,8 +72,7 @@
                     </form>
                 </section>
                 <br>
-                <br>
-                
+                <hr class="break">
                 
                 <h3>Your shopping lists for <%= store.name %></h3>
                 <a class="new-list-link" href="/store/<%= store._id %>/new-list">Create New Shopping List</a>
@@ -86,13 +85,10 @@
                         </a>
                     </p>
                 <% }) %>
-                <br>
-                
-        
-                
-        
-                
-                <h3><%= stores.name %> Products </h3>
+                <hr class="break">
+
+            
+                <h3><%= store.name %> Products </h3>
                 <a class="new-item-link" href="/product/new">Create New Items</a>
                 
                 <p>
@@ -109,6 +105,6 @@
         </main>
         
     </div>
-    
+    <footer><script> </script></footer>
 </body>
 </html>

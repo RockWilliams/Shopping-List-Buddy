@@ -48,6 +48,7 @@ app.get("/homepage", function(req,res){
             res.send({Message: "Internal Server Error"});
         } else {
             const context = {
+                user: foundUser,
                 stores: foundUser.stores,
                 lists: foundUser.lists
             };
