@@ -1,114 +1,165 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--purple-light: #6f4a8e;
+	--purple-dark: #221f3b;
+	--black: #050505;
+	--white: #ebebeb;
+	--purple-dark-transparent: rgba(5, 5, 5, 0.5);
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
-    
+	height: 100vh;
+	width: 100vw;
+	background-color: var(--purple-dark);
 }
 
 .flexbox {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(27, 40, 50);
-    bottom: 0;
-    position: fixed;
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+	bottom: 0;
+	position: fixed;
 }
 
 .content {
-    position: absolute;
-    background-color: rgb(19, 32, 42);
-    border-radius: 20px;
-    padding: 20px;
+	position: absolute;
+	background-color: var(--purple-dark-transparent);
+	border-radius: 20px;
+	padding: 40px;
+	border: solid var(--purple-light) 2px;
 }
+
 header {
-    text-align: center;
-    color: #DEBA6F;
+	text-align: center;
+	color: var(--white);
 }
 .content h1 {
-    color: #DEBA6F;
+	color: var(--white);
 }
 
 h1 {
-    font-size: 4em;
+	font-size: 4em;
 }
 
 h3 {
-    font-size: 3em;
+	font-size: 3em;
 }
-input{
-    font-size: 1.5em;
-    width: 200px;
-    background-color: #343A40;
-    color: #1868C5;
-    border-style: none;
-    border-radius: 5px;
+input {
+	font-size: 1.5em;
+	width: 200px;
+	/* background-color: var(--purple-dark); */
+	color: var(--purple-light);
+	border-style: none;
+	border-radius: 5px;
 }
 
 a {
-    text-decoration: none;
-    color: #1868C5;
-    transition: transform linear .3s;
-    display: block;
-    transform-origin: left;
-    font-size: 2em;
+	text-decoration: none;
+	color: var(--purple-light);
+	transition: transform linear 0.3s;
+	display: block;
+	transform-origin: left;
+	font-size: 2em;
 }
 
 input {
-    width: 200px;
-    height: 30px;
-    font-size: 16px;
+	width: 200px;
+	height: 30px;
+	font-size: 16px;
 }
 
 .storeData {
-    font-size: 2em;
+	font-size: 2em;
 }
 
 a:hover {
-    transform: scale(1.1);
+	transform: scale(1.1);
+	color: var(--purple-light);
 }
 
 #flexbox {
-    position: absolute;
-    background: none;
-    display: flex;
-    height: 100vh;
-    width: 100vw;
+	position: absolute;
+	background: none;
+	display: flex;
+	height: 100vh;
+	width: 100vw;
 }
 
 #new-list-div {
-    position: relative;
-    margin: 5px;
-    left: 0;
-    bottom: 0;
-    height: 100vh;
-    width: 50vw;
+	position: relative;
+	margin: 5px;
+	left: 0;
+	bottom: 0;
+	height: 100vh;
+	width: 50vw;
 }
 
 #list-div {
-    border-radius: 20px;
-    position: relative;
-    padding: 20px;
-    margin: 5px;
-    height: 100px;
+	border-radius: 20px;
+	position: relative;
+	padding: 20px;
+	margin: 5px;
+	height: 100px;
 }
 
 .list-product {
-    padding-bottom: 1px;
-    padding-top: 5px;
-    list-style-type: none;
+	padding-bottom: 1px;
+	padding-top: 5px;
+	list-style-type: none;
 }
 
 header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 104px;
-    z-index: 10;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 104px;
+	z-index: 10;
+}
+
+.modal-content {
+	overflow: hidden;
+	position: absolute;
+	background-color: var(--purple-dark);
+	border-radius: 20px;
+	padding: 20px;
+	width: 550px;
+
+	padding-bottom: 20px;
+	border: solid var(--purple-light) 2px;
+}
+
+.modal-title {
+	color: var(--white);
+	font-size: 2.5em;
+}
+
+.modal-content .close-modal {
+	background-color: var(--purple-dark);
+	color: var(--white);
+	font-size: 1.25em;
+}
+
+.modal-content .modal-submit {
+	background-color: var(--purple-light);
+	color: var(--white);
+	font-size: 1.25em;
+}
+
+.modal-header {
+	padding-top: 0;
+}
+
+.modal-body {
+	padding-bottom: 0;
+}
+
+#login {
+	height: 44px;
 }

@@ -9,6 +9,7 @@
 	--purple-dark: #221f3b;
 	--black: #050505;
 	--white: #ebebeb;
+	--purple-dark-transparent: rgba(5, 5, 5, 0.8);
 }
 
 body {
@@ -26,6 +27,7 @@ header h1 {
 	text-align: center;
 	color: var(--white);
 }
+
 nav {
 	background-color: rgb(9, 22, 32);
 }
@@ -34,6 +36,7 @@ nav {
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
+
 input:hover {
 	cursor: pointer;
 }
