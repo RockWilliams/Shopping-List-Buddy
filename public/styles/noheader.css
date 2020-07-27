@@ -248,8 +248,9 @@ nav {
 	padding: 5px;
 	border-radius: 5px;
 	border: none;
-	background-color: var(--white);
-	color: rgb(0, 13, 23);
+	background-color: var(--purple-dark);
+	border: 2px solid var(--black);
+	color: var(--white);
 }
 
 input {
