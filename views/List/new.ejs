@@ -241,7 +241,7 @@
 			<main class="create-list-main">
 					<div class="col mx-75px">
 							<div id="flex-new-list" class="content">
-								<h1>New Shopping List for <%= store.name %></h1>
+								<h1 id="new-list-title">New Shopping List for <%= store.name %></h1>
 								<p hidden id="store-id"><%= store._id %></p>
 								<div class="form-group">
 									<input
@@ -273,7 +273,7 @@
 									
 								</div>
 								<div class="flex-buttons">
-									<button class="btn" id="add-list">Add to list!</button>
+									<button class="btn " id="add-list">Add to list!</button>
 									<button class="btn" id="final">Finalize</button>
 								</div>
 							</div>
