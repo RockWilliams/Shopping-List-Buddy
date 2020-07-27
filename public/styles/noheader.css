@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	font-family: "Quicksand", sans-serif;
 }
 
 :root {
@@ -27,6 +30,11 @@ body {
 	background-color: var(--purple-dark);
 
 	/* overflow-y: scroll; */
+}
+
+.flexbox-new-list {
+	max-width: 450px;
+	display: inline-flex;
 }
 
 .flex-add {
@@ -77,6 +85,7 @@ body {
 }
 #flex-new-list h1 {
 	color: var(--white);
+	margin: auto;
 }
 
 .content {
@@ -130,7 +139,6 @@ body {
 	width: 100%;
 	height: 100%;
 	background: none;
-	overflow-y: scroll;
 	top: 0;
 	bottom: 0;
 	border-radius: 0;
@@ -183,14 +191,27 @@ hr {
 	border-radius: 20px;
 	position: relative;
 	padding: 20px;
-	margin: 5px;
+	margin: 20px auto;
 	height: 100px;
+	max-width: 550px;
 	min-width: 340px;
+}
+
+#flex-new-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px auto;
+	max-width: 550px;
+	min-width: 340px;
+	position: relative;
+	text-align: center;
 }
 
 #list-div h3 {
 	position: absolute;
 	overflow: hidden;
+	color: var(--white);
 }
 
 .list-product {
@@ -200,6 +221,7 @@ hr {
 	padding-top: 5px;
 	list-style-type: none;
 	font-size: 1.5em;
+	color: var(--white);
 }
 
 #list {
@@ -209,9 +231,9 @@ hr {
 .list-delete {
 	padding: 5px;
 	border-radius: 5px;
-	border: none;
-	background-color: var(--white);
-	color: rgb(0, 13, 23);
+	border: 2px solid var(--black);
+	background-color: var(--purple-dark);
+	color: var(--white);
 }
 nav {
 	background-color: var(--purple-dark-transparent);
@@ -226,8 +248,9 @@ nav {
 	padding: 5px;
 	border-radius: 5px;
 	border: none;
-	background-color: var(--white);
-	color: rgb(0, 13, 23);
+	background-color: var(--purple-dark);
+	border: 2px solid var(--black);
+	color: var(--white);
 }
 
 input {
@@ -250,6 +273,7 @@ input {
 
 #quantity {
 	width: 100px;
+	margin: 10px;
 }
 
 ::placeholder {
@@ -270,19 +294,14 @@ button {
 }
 
 #add-list {
-	background-color: #343a40;
-	color: #1868c5;
+	background-color: var(--purple-light);
+	color: var(--white);
 }
 
 #final {
-	background-color: var(--white);
-	color: #1868c5;
-}
-#flex-new-list {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 5px;
+	background-color: var(--purple-dark);
+	color: var(--white);
+	border: 2px solid var(--purple-light);
 }
 
 .flex-buttons {
@@ -309,6 +328,8 @@ select {
 	background-color: rgb(9, 22, 32);
 }
 .store-name {
+	text-align: left;
+	margin: 15px 35px;
 	font-size: 3rem;
 }
 .flex-home {
@@ -324,10 +345,12 @@ select {
 }
 .flex-home p {
 	color: var(--white);
-	font-size: 1.5em;
+	font-size: 2.9em;
+	text-align: center;
 }
 .home-fix {
-	width: 500px;
+	width: 700px;
+	height: 400px;
 }
 .num {
 	color: var(--white);
@@ -343,16 +366,21 @@ select {
 	margin: 0;
 }
 
+.list-show a {
+	color: var(--purple-light);
+}
+
 .list-show h1 {
 	margin-top: -10px;
 }
 .product-details {
 	width: 100%;
-	background-color: rgb(19, 32, 42);
+	background-color: #141320;
 	height: 100%;
 	opacity: 0.2;
 	position: absolute;
 	transition: opacity linear 0.6s;
+	color: var(--white);
 }
 
 .products-list {
@@ -368,6 +396,10 @@ select {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+}
+
+.span-product-name {
+	color: var(--white);
 }
 
 .product-details:hover {
@@ -387,4 +419,65 @@ nav a {
 nav a:hover {
 	background-color: var(--black);
 	color: var(--purple-light);
+}
+
+.container-store-data {
+	background-color: var(--purple-dark-transparent);
+	min-width: 350px;
+	max-width: 350px;
+	border-radius: 5px;
+	margin: 40px 40px;
+	box-shadow: 5px 5px 5px var(--black);
+	height: 400px;
+}
+
+.container-store-data a {
+	color: var(--purple-light);
+}
+
+.container-store-lists {
+	min-width: 600px;
+	max-width: 600px;
+	margin: 40px 40px;
+	background-color: var(--purple-dark-transparent);
+	height: 500px;
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px var(--black);
+	overflow: auto;
+}
+
+.container-store-lists a {
+	color: var(--purple-light);
+}
+
+.container-store-products {
+	margin: 40px 40px;
+	min-width: 300px;
+	max-width: 300px;
+	background-color: var(--purple-dark-transparent);
+	border-radius: 5px;
+	box-shadow: 5px 5px 5px var(--black);
+	overflow: auto;
+}
+
+.container-store-products a {
+	color: var(--purple-light);
+}
+
+::-webkit-scrollbar {
+	background: none;
+}
+
+.flex {
+	display: flex;
+	right: 0;
+	position: relative;
+	margin-left: auto;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.list-show {
+	background-color: var(--purple-dark-transparent);
+	box-shadow: 5px 5px 5px var(--black);
 }
