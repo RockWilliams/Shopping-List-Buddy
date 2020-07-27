@@ -422,13 +422,12 @@ nav a:hover {
 
 .container-store-data {
 	background-color: var(--purple-dark-transparent);
-	width: 350px;
+	min-width: 350px;
+	max-width: 350px;
 	border-radius: 5px;
-	margin-right: auto;
-	margin-left: 100px;
-	margin-top: 40px;
-	position: absolute;
+	margin: 40px 40px;
 	box-shadow: 5px 5px 5px var(--black);
+	height: 400px;
 }
 
 .container-store-data a {
@@ -436,8 +435,9 @@ nav a:hover {
 }
 
 .container-store-lists {
-	width: 600px;
-	margin: 40px auto;
+	min-width: 600px;
+	max-width: 600px;
+	margin: 40px 40px;
 	background-color: var(--purple-dark-transparent);
 	height: 500px;
 	border-radius: 5px;
@@ -450,8 +450,9 @@ nav a:hover {
 }
 
 .container-store-products {
-	margin: 40px auto;
-	width: 300px;
+	margin: 40px 40px;
+	min-width: 300px;
+	max-width: 300px;
 	background-color: var(--purple-dark-transparent);
 	border-radius: 5px;
 	box-shadow: 5px 5px 5px var(--black);
@@ -469,9 +470,10 @@ nav a:hover {
 .flex {
 	display: flex;
 	right: 0;
-	position: fixed;
-	min-width: 1300px;
-	max-width: 1300px;
+	position: relative;
+	margin-left: auto;
+	width: 100%;
+	justify-content: space-between;
 }
 
 .list-show {
