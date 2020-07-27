@@ -187,54 +187,53 @@
         <main class="show-store-main">
             <div class="content-fixed">
                 <h1 class="store-name"><%= store.name %> </h1>
-                
-                <div class="container-store-data">
-                    <h3>Store data:</h3>
-                    <p class="storeData">Type of store: <%= store.type %> </p>
-                    <p class="storeData">Cost: <%= store.expensive %> </p>
-                    <br>
-                    <section>
-                        <a href="/store/<%= store._id %>/edit">(edit store)</a>
-                    </section>
-                    <br>
-                    <section>
-                        <form action="/store/<%= store._id %>?_method=DELETE" method="POST">
-                            <input class="store-delete" type="submit" value="Delete store">
-                        </form>
-                    </section>
-                    <br>
-                </div>
                 <div class="flex">
-                    <div class="container-store-lists">
-                        <h3>Your shopping lists for <%= store.name %></h3>
-                        <a class="new-list-link" href="/store/<%= store._id %>/new-list">Create New Shopping List</a>
-                        
-                        
-                        <% store.lists.forEach(list => { %>
-                            <p>
-                                <a href="/store/<%= store._id %>/<%= list._id %>">
-                                    <%= list.name %> 
-                                </a>
-                            </p>
-                        <% }) %>
+                    <div class="container-store-data">
+                        <h3>Store data:</h3>
+                        <p class="storeData">Type of store: <%= store.type %> </p>
+                        <p class="storeData">Cost: <%= store.expensive %> </p>
+                        <br>
+                        <section>
+                            <a href="/store/<%= store._id %>/edit">(edit store)</a>
+                        </section>
+                        <br>
+                        <section>
+                            <form action="/store/<%= store._id %>?_method=DELETE" method="POST">
+                                <input class="store-delete" type="submit" value="Delete store">
+                            </form>
+                        </section>
+                        <br>
                     </div>
-
-                    <div class="container-store-products">
-                        <h3><%= store.name %> Products </h3>
-                        <a class="new-item-link" href="#" data-toggle="modal" data-target="#new-product-modal">Create New Items</a>
-                        
-                        <p>
-                            <ul>
-                                <% store.products.forEach(product => { %>
-                                    <li><%= product.name %></li>
+                        <div class="container-store-lists">
+                            <h3>Your shopping lists for <%= store.name %></h3>
+                            <a class="new-list-link" href="/store/<%= store._id %>/new-list">Create New Shopping List</a>
+                            
+                            
+                            <% store.lists.forEach(list => { %>
+                                <p>
+                                    <a href="/store/<%= store._id %>/<%= list._id %>">
+                                        <%= list.name %> 
+                                    </a>
+                                </p>
                             <% }) %>
-                            </ul>
-                        </p>
-                        <!-- <a href="/product">Products from <%= store.name %> </a> -->
-                        <br>
-                        <br>
+                        </div>
+
+                        <div class="container-store-products">
+                            <h3><%= store.name %> Products </h3>
+                            <a class="new-item-link" href="#" data-toggle="modal" data-target="#new-product-modal">Create New Items</a>
+                            
+                            <p>
+                                <ul>
+                                    <% store.products.forEach(product => { %>
+                                        <li><%= product.name %></li>
+                                <% }) %>
+                                </ul>
+                            </p>
+                            <!-- <a href="/product">Products from <%= store.name %> </a> -->
+                            <br>
+                            <br>
+                        </div>
                     </div>
-                </div>
             </div>
         </main>
         
