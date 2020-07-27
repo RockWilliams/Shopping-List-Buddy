@@ -398,6 +398,11 @@ nav a:hover {
 	margin-left: 100px; 
 	margin-top: 40px;
 	position: absolute;
+	box-shadow: 5px 5px 5px var(--black);
+}
+
+.container-store-data a {
+	color: var(--purple-light);
 }
 
 .container-store-lists {
@@ -406,6 +411,12 @@ nav a:hover {
 	background-color: var(--purple-dark-transparent);
 	height: 500px;
 	border-radius: 5px;
+	box-shadow: 5px 5px 5px var(--black);
+	overflow: auto;
+}
+
+.container-store-lists a {
+	color: var(--purple-light);
 }
 
 .container-store-products {
@@ -413,6 +424,16 @@ nav a:hover {
 	width: 300px;
 	background-color: var(--purple-dark-transparent);
 	border-radius: 5px;
+	box-shadow: 5px 5px 5px var(--black);
+	overflow: auto;
+}
+
+.container-store-products a {
+	color: var(--purple-light);
+}
+
+::-webkit-scrollbar {
+	background: none;
 }
 
 .flex {
