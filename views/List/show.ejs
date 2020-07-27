@@ -30,8 +30,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Add</a>
                         <div class="dropdown-menu">
-                            <a href="/store/new" class="dropdown-item">Store</a>
-                            <a href="/product/new" class="dropdown-item">Product</a>
+                            <a href="#" class="dropdown-item" data-toggle="modal" data-target="#new-store-modal">Store</a>
+                            <a href="#" class="dropdown-item" data-toggle="modal" data-target="#new-product-modal">Product</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -64,6 +64,131 @@
                 
             </nav>
         </header>
+        <!-- Add New Store Modal -->
+			<div
+				class="modal fade"
+				id="new-store-modal"
+				tabindex="-1"
+				role="dialog"
+				aria-labelledby="Add Store"
+                aria-hidden="true"
+			>
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header ">
+							<h4 class="modal-title mx-auto" id="new-store-modal-title">
+								Add a Store
+							</h4>
+						</div>
+						<div class="modal-body mx-auto">
+                            <form action="/store" method="post">
+                                <div class="form-group">
+                                    <input
+                                    class="form-control"
+                                    style="display: inline-block;"
+									type="text"
+									name="name"
+									placeholder="Store Name"
+								    />
+                                </div>
+                                <div class="form-group">
+                                    <input
+                                    class="form-control"
+                                    style="display: inline-block;"
+									type="text"
+									name="type"
+									placeholder="Type"
+								    />
+                                </div>
+                                    
+                                
+                                <div class="form-group">
+                                    <input
+                                    class="form-control"
+                                    style="display: inline-block;"
+									type="text"
+									name="expensive"
+									placeholder="Expensive?"
+								    />
+                                </div>
+                                    
+                                
+						</div>
+						<div class="modal-footer mx-auto">
+							<button
+								type="button"
+								class="close-modal btn btn-secondary"
+								data-dismiss="modal"
+							>
+								Close
+                            </button>
+                            <input
+                                class="btn modal-submit p-5px"
+								id="add-store"
+								type="submit"
+								value="Add Store"
+								/>
+                            </form>
+						</div>
+					</div>
+				</div>
+            </div>
+            
+
+            <!-- Add New Product Modal -->
+			<div
+				class="modal fade"
+				id="new-product-modal"
+				tabindex="-1"
+				role="dialog"
+				aria-labelledby="Add Store"
+                aria-hidden="true"
+			>
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header ">
+							<h2 class="modal-title mx-auto" id="new-product-modal-title">
+								Add a Product
+							</h2>
+						</div>
+						<div class="modal-body mx-auto">
+                            <form action="/product" method="POST">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="name" placeholder="Item Name">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="price" placeholder="Price">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="category" placeholder="category">
+                                </div>
+                                <div class="form-group">
+                                    <select name="store" class="form-control" style="padding: 0; margin: 0;">
+                                        <% stores.forEach(store => { %>
+                                            <option value="<%= store._id %>"><%= store.name %></option>
+                                    <% }) %> 
+                                </select>
+                                </div>
+						</div>
+						<div class="modal-footer mx-auto">
+							<button
+								type="button"
+								class="close-modal btn btn-secondary"
+								data-dismiss="modal"
+							>
+								Close
+                            </button>
+                            <input
+                                class="btn modal-submit"
+								id="add-product"
+								type="submit"
+								value="Add Product"
+								/>
+                            </form>
+						</div>
+					</div>
+				</div>
+            </div>
     <main class="show-list-main">
         <div class="content list-show">
             <h3><%= store.name %></h3>
