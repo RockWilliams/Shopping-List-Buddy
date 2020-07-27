@@ -32,6 +32,11 @@ body {
 	/* overflow-y: scroll; */
 }
 
+.flexbox-new-list {
+	max-width: 450px;
+	display: inline-flex;
+}
+
 .flex-add {
 	display: flex;
 	height: 100%;
@@ -185,9 +190,20 @@ hr {
 	border-radius: 20px;
 	position: relative;
 	padding: 20px;
-	margin: 5px;
+	margin: 20px auto;
 	height: 100px;
+	max-width: 550px;
 	min-width: 340px;
+}
+
+#flex-new-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px auto;
+	max-width: 550px;
+	min-width: 340px;
+	position: relative;
 }
 
 #list-div h3 {
@@ -254,6 +270,7 @@ input {
 
 #quantity {
 	width: 100px;
+	margin: 10px;
 }
 
 ::placeholder {
@@ -281,12 +298,6 @@ button {
 #final {
 	background-color: var(--white);
 	color: #1868c5;
-}
-#flex-new-list {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 5px;
 }
 
 .flex-buttons {
