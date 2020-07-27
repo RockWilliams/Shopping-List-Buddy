@@ -28,9 +28,6 @@ header h1 {
 	color: var(--white);
 }
 
-nav {
-	background-color: rgb(9, 22, 32);
-}
 
 .navbar {
 	padding-top: 0px;
