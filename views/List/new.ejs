@@ -253,7 +253,7 @@
 							<p>
 								<select name="products">
 									<% store.products.forEach(product => { %>
-									<option value="<%= product._id %>">
+									<option class="product-store" value="<%= product._id %>">
 										<%= product.name %>
 									</option>
 									<% }) %>

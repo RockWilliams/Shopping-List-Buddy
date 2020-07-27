@@ -11,7 +11,7 @@ router.get("/register", function (req, res) {
 
 router.post("/register", async function (req, res) {
 	try {
-		const foundUser = await db.User.findOneAndDelete({
+		const foundUser = await db.User.find({
 			email: req.body.email,
 		});
 		if (foundUser) {
