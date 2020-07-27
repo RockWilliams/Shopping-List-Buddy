@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	font-family: "Quicksand", sans-serif;
 }
 
 :root {
@@ -190,6 +193,7 @@ hr {
 #list-div h3 {
 	position: absolute;
 	overflow: hidden;
+	color: var(--white);
 }
 
 .list-product {
@@ -199,6 +203,7 @@ hr {
 	padding-top: 5px;
 	list-style-type: none;
 	font-size: 1.5em;
+	color: var(--white);
 }
 
 #list {
@@ -325,10 +330,12 @@ select {
 }
 .flex-home p {
 	color: var(--white);
-	font-size: 1.5em;
+	font-size: 2.9em;
+	text-align: center;
 }
 .home-fix {
-	width: 500px;
+	width: 700px;
+	height: 400px;
 }
 .num {
 	color: var(--white);
@@ -395,7 +402,7 @@ nav a:hover {
 	width: 350px;
 	border-radius: 5px;
 	margin-right: auto;
-	margin-left: 100px; 
+	margin-left: 100px;
 	margin-top: 40px;
 	position: absolute;
 	box-shadow: 5px 5px 5px var(--black);
